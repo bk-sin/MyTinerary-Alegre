@@ -1,3 +1,3 @@
-export default function Cities () {
-  return <h1>Home</h1>
+export default function Cities() {
+  return <h1>Cities</h1>
 }
