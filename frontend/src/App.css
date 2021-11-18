@@ -30,7 +30,7 @@
 
 .palmera {
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 .palmeraPadre {
   width: 63%;
@@ -86,12 +86,12 @@
   position: absolute;
   width: 646px;
   height: 646px;
-  right: 200px;
-  bottom: 28px;
-
+  right: 300px;
+  bottom: 70px;
+  border-radius: 50%;
   background: #ffffff;
   opacity: 0.8;
-  filter: blur(250px);
+  filter: blur(100px);
 }
 
 .botonazo {
@@ -175,4 +175,52 @@
 
 .icon-f:hover {
   box-shadow: 0px 0px 30px #8091fe;
+}
+
+.navbar {
+  background: linear-gradient(
+    0deg,
+    #00000000 0.05%,
+    rgba(0, 0, 0, 0.349) 99.79%
+  );
+
+  height: 8rem;
+}
+
+.trans {
+  background: transparent;
+}
+
+.carrosaPadre {
+  width: 80%;
+  height: 70vh;
+  margin: auto;
+}
+
+.picado {
+  width: 50%;
+  height: 40vh;
+  object-fit: cover;
+}
+
+.carrosa {
+  background: linear-gradient(359.75deg, #8489ff 0.23%, #61c0f5 99.79%);
+  height: 100vh;
+}
+
+.nube1 {
+  position: absolute;
+  width: 468px;
+  height: 195px;
+  right: 270px;
+  top: 150px;
+  z-index: 1;
+}
+.nube2 {
+  position: absolute;
+  width: 468px;
+  height: 195px;
+  right: 670px;
+  bottom: 250px;
+  z-index: 1;
 }
