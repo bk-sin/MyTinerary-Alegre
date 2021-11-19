@@ -4,13 +4,13 @@
 }
 @media (max-width: 1200px) {
   .palmeraPadre {
-    display: none;
+    display: none !important;
   }
   .welcomeMessage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    width: 100% !important;
   }
 }
 .welcomeMessage {

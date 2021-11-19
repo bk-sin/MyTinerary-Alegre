@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b66ef403.chunk.css",
+    "main.js": "/static/js/main.6266369d.chunk.js",
+    "main.js.map": "/static/js/main.6266369d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7f094ce3.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7f094ce3.js.map",
+    "static/css/2.4911b866.chunk.css": "/static/css/2.4911b866.chunk.css",
+    "static/js/2.574097df.chunk.js": "/static/js/2.574097df.chunk.js",
+    "static/js/2.574097df.chunk.js.map": "/static/js/2.574097df.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.4911b866.chunk.css.map": "/static/css/2.4911b866.chunk.css.map",
+    "static/css/main.b66ef403.chunk.css.map": "/static/css/main.b66ef403.chunk.css.map",
+    "static/js/2.574097df.chunk.js.LICENSE.txt": "/static/js/2.574097df.chunk.js.LICENSE.txt",
+    "static/media/argentina.jpg": "/static/media/argentina.141c44d4.jpg",
+    "static/media/india.jpg": "/static/media/india.129de768.jpg",
+    "static/media/indonesia.jpg": "/static/media/indonesia.d576ba15.jpg",
+    "static/media/italy.jpg": "/static/media/italy.564cc410.jpg",
+    "static/media/japan.jpg": "/static/media/japan.2c2fe4a1.jpg",
+    "static/media/mexico.jpg": "/static/media/mexico.5d6868a5.jpg",
+    "static/media/nube.cdcf4ed7.png": "/static/media/nube.cdcf4ed7.png",
+    "static/media/palmera.8fc3ebc3.png": "/static/media/palmera.8fc3ebc3.png",
+    "static/media/russia.jpg": "/static/media/russia.15f310ce.jpg",
+    "static/media/spain.jpg": "/static/media/spain.5d3688e0.jpg",
+    "static/media/sudafrica.jpg": "/static/media/sudafrica.6627c11a.jpg",
+    "static/media/tailandia.jpg": "/static/media/tailandia.4dcb385c.jpg",
+    "static/media/usa.jpg": "/static/media/usa.af5e0fb8.jpg",
+    "static/media/vietnam.jpg": "/static/media/vietnam.d102a750.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7f094ce3.js",
+    "static/css/2.4911b866.chunk.css",
+    "static/js/2.574097df.chunk.js",
+    "static/css/main.b66ef403.chunk.css",
+    "static/js/main.6266369d.chunk.js"
+  ]
+}
