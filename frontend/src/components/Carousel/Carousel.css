@@ -21,7 +21,7 @@
 }
 .bg {
   padding: 1rem 0 3rem 0;
-  background: linear-gradient(359.75deg, #8489ff 0.23%, #61c0f5 99.79%);
+  background: linear-gradient(180deg, #8489ff 0.23%, #61c0f5 99.79%);
 }
 
 .bg > .container > h1 {

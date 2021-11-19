@@ -1,11 +1,13 @@
 .social-bg {
   width: 100%;
   height: 200px;
+  transition: 0.5s;
 }
 .icon {
   width: 70px;
   height: 70px;
   color: #ffffff;
+  transition: 0.5s;
 }
 .icon-bg {
   display: flex;
@@ -19,6 +21,29 @@
 }
 .icon-bg:hover {
   box-shadow: 0px 0px 30px #8091fe;
+}
+@media (max-width: 800px) {
+  .icon {
+    width: 40px;
+    height: 40px;
+    color: #ffffff;
+    transition: 0.5s;
+  }
+  .icon-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #8091fe;
+    transition: 0.5s;
+  }
+  .social-bg {
+    width: 100%;
+    height: 100px;
+    transition: 0.5s;
+  }
 }
 .socialPadre {
   width: 100%;

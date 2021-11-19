@@ -13,6 +13,7 @@
     width: 100% !important;
   }
 }
+
 .welcomeMessage {
   width: 37%;
   height: 100vh;
@@ -48,7 +49,6 @@
 
   max-width: 498px;
   width: 87vw;
-  height: 56px;
 
   background: linear-gradient(to right, #eed761 0%, #ffb9af 51%);
   box-shadow: 0px 3.52663px 35.2663px rgba(255, 185, 175, 0.5);
@@ -60,12 +60,17 @@
   font-size: 21px;
   line-height: 40px;
   transition: 0.5s;
-  background-size: 400% auto;
+  background-size: 250% auto;
 
   color: #ffffff;
 }
 .btnCallToAction:hover {
   background-position: right center; /* change the direction of the change here */
+}
+@media (max-width: 800px) {
+  .btnCallToAction {
+    font-size: 18px !important;
+  }
 }
 
 .palmeraPadre {
