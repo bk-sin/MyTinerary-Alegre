@@ -1,0 +1,22 @@
+.img-carousel {
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.card-carousel {
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+.textcard {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -1.8px;
+  line-height: 36px;
+  text-shadow: 0 2px 4px rgb(71 97 206 / 36%);
+}
+.bg {
+  padding: 5rem 0;
+  background: linear-gradient(359.75deg, #8489ff 0.23%, #61c0f5 99.79%);
+}

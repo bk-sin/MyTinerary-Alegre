@@ -1,3 +1,4 @@
+import "./Navigation.css"
 import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap"
 
 import {FaRegUserCircle} from "react-icons/fa"

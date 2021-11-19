@@ -1,0 +1,107 @@
+#hero {
+  height: 100vh;
+  background: linear-gradient(359.75deg, #8489ff 0.23%, #61c0f5 99.79%);
+}
+@media (max-width: 1200px) {
+  .palmeraPadre {
+    display: none;
+  }
+  .welcomeMessage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+}
+.welcomeMessage {
+  width: 37%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.welcomeMessage h1 {
+  /*   margin-left: 7rem;
+ */
+  color: #ffffff;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 78.6505px;
+  line-height: 133%;
+  letter-spacing: 0.025em;
+}
+
+.welcomeMessage p {
+  /*   margin-left: 7rem;
+ */
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20.2852px;
+  line-height: 170%;
+  letter-spacing: 0.015em;
+  color: #ffffff;
+}
+.btnCallToAction {
+  border: none;
+
+  max-width: 498px;
+  width: 87vw;
+  height: 56px;
+
+  background: linear-gradient(to right, #eed761 0%, #ffb9af 51%);
+  box-shadow: 0px 3.52663px 35.2663px rgba(255, 185, 175, 0.5);
+  border-radius: 88.1657px;
+
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 40px;
+  transition: 0.5s;
+  background-size: 400% auto;
+
+  color: #ffffff;
+}
+.btnCallToAction:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.palmeraPadre {
+  width: 63%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column-reverse;
+}
+.brillo {
+  position: absolute;
+  width: 646px;
+  height: 646px;
+  right: 300px;
+  bottom: 70px;
+  border-radius: 50%;
+  background: #ffffff;
+  opacity: 0.8;
+  filter: blur(100px);
+}
+.palmera {
+  width: 100%;
+  z-index: 2;
+}
+.nube1 {
+  position: absolute;
+  width: 468px;
+  height: 195px;
+  right: 270px;
+  top: 150px;
+  z-index: 1;
+}
+.nube2 {
+  position: absolute;
+  width: 468px;
+  height: 195px;
+  right: 670px;
+  bottom: 250px;
+  z-index: 1;
+}

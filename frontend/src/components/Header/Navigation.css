@@ -1,0 +1,57 @@
+.yellow {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34.375px;
+  line-height: 43px;
+  color: #ffe24a;
+}
+.white {
+  font-family: Quicksand;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 34.375px;
+  line-height: 43px;
+  color: #ffffff;
+}
+@media (max-width: 991px) {
+  .barraNav a {
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
+    background: linear-gradient(to left, #ffd501b2 0%, #ff8c7aa8 51%);
+    background-size: 3 00% auto;
+    transition: 0.5s;
+  }
+  .barraNav a:hover {
+    background-position: right center; /* change the direction of the change here */
+  }
+}
+.white-link {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24.5267px;
+  line-height: 30px;
+  color: #ffffff;
+}
+.navbar {
+  background: linear-gradient(
+    0deg,
+    #00000000 0.05%,
+    rgba(0, 0, 0, 0.349) 99.79%
+  );
+  height: 5rem;
+}
+
+.dropdown-menu {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+}
+
+.dropdown {
+  line-height: 100%;
+}

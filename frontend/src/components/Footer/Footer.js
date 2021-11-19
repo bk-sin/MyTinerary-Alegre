@@ -1,3 +1,4 @@
+import "./Footer.css"
 import {
   FaFacebookSquare,
   FaLinkedin,
@@ -24,10 +25,10 @@ const Footer = () => {
           <a href="/cities">Cities</a>
         </div>
         <div>
-          <FaFacebookSquare className="socials" />
-          <FaTwitter className="socials" />
-          <FaLinkedin className="socials" />
-          <FaInstagram className="socials" />
+          <FaFacebookSquare className="Footersocials" />
+          <FaTwitter className="Footersocials" />
+          <FaLinkedin className="Footersocials" />
+          <FaInstagram className="Footersocials" />
         </div>
         <p className="footerCopy">
           Copyright © 2022. LogoIpsum. All rights reserved.
