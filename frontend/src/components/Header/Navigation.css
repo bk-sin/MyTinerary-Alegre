@@ -19,9 +19,15 @@
     text-align: center;
     padding: 10px;
     border-radius: 30px;
-    background: linear-gradient(to left, #ffd501b2 0%, #ff8c7aa8 51%);
-    background-size: 3 00% auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.4) !important;
+    backdrop-filter: blur(8px) !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
     transition: 0.5s;
+  }
+  .barraNav .dropdown-menu {
+    background: rgba(255, 255, 255, 0) !important;
   }
   .barraNav a:hover {
     background-position: right center; /* change the direction of the change here */
@@ -54,4 +60,10 @@
 
 .dropdown {
   line-height: 100%;
+}
+.navbar-toggler {
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
 }

@@ -37,7 +37,8 @@ export default class Carousel extends Component {
     return (
       <>
         <Container fluid className="bg">
-          <div className="container carrosaPadre">
+          <Container>
+            <h1>Popular MyTineraries</h1>
             <Slider {...settings}>
               {Imagenes.map((img, index) => {
                 return (
@@ -56,7 +57,7 @@ export default class Carousel extends Component {
                 )
               })}
             </Slider>
-          </div>
+          </Container>
         </Container>
       </>
     )
