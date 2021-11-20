@@ -36,7 +36,7 @@ export default class Carousel extends Component {
     }
     return (
       <>
-        <Container fluid className="bg">
+        <Container fluid className="bg ">
           <Container>
             <h1>Popular MyTineraries</h1>
             <Slider {...settings}>

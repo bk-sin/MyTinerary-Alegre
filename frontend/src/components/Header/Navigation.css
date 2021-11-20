@@ -36,23 +36,30 @@
 .white-link {
   font-family: Montserrat;
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 24.5267px;
   line-height: 30px;
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+}
+.shadowfilter {
+  filter: drop-shadow(0px 0px 2px #2f2f2f);
+}
+.white-link:hover {
+  color: rgb(255, 255, 255);
+}
+
+.active {
+  color: rgba(255, 255, 255, 0.9);
 }
 .navbar {
-  background: linear-gradient(
-    0deg,
-    #00000000 0.05%,
-    rgba(0, 0, 0, 0.349) 99.79%
-  );
-  height: 5rem;
+  background: linear-gradient(0deg, #00000000 0.05%, rgba(0, 0, 0, 0.4) 95%);
+  height: 6rem;
 }
 
 .dropdown-menu {
   text-align: center;
-  background: rgba(255, 255, 255, 0.4) !important;
+  background: rgba(206, 206, 206, 0.335) !important;
   backdrop-filter: blur(8px) !important;
   border-radius: 10px !important;
   border: 1px solid rgba(255, 255, 255, 0.18) !important;

@@ -19,18 +19,18 @@ export default function Navigations() {
           >
             <Nav>
               <Nav.Link href="/">
-                <span className="white-link">Home</span>
+                <span className="white-link active shadowfilter">Home</span>
               </Nav.Link>
               <Nav.Link href="/cities">
-                <span className="white-link">Cities</span>
+                <span className="white-link shadowfilter">Cities</span>
               </Nav.Link>
               <NavDropdown
-                className="white-link"
-                title={<FaRegUserCircle />}
+                className="white-link "
+                title={<FaRegUserCircle className="shadowfilter" />}
                 id="basic-nav-dropdown"
               >
                 <NavDropdown.Item href="/">
-                  <span className="white-link">Sign Up</span>
+                  <span className="white-link ">Sign Up</span>
                 </NavDropdown.Item>
                 <NavDropdown.Item href="/">
                   <span className="white-link">Sign In</span>
