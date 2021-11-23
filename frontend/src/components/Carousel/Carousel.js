@@ -27,7 +27,7 @@ export default class Carousel extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             slidesPerRow: 1,
-            rows: 2,
+            rows: 4,
             dots: false,
             arrows: false,
           },

@@ -1,5 +1,6 @@
 import "./Navigation.css"
 import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap"
+import {Link} from "react-router-dom"
 
 import {FaRegUserCircle} from "react-icons/fa"
 
@@ -18,22 +19,30 @@ export default function Navigations() {
             id="responsive-navbar-nav"
           >
             <Nav>
-              <Nav.Link href="/">
-                <span className="white-link active shadowfilter">Home</span>
+              <Nav.Link>
+                <Link to="/">
+                  <span className="white-link active shadowfilter">Home</span>
+                </Link>
               </Nav.Link>
-              <Nav.Link href="/cities">
-                <span className="white-link shadowfilter">Cities</span>
+              <Nav.Link>
+                <Link to="/cities">
+                  <span className="white-link shadowfilter">Cities</span>
+                </Link>
               </Nav.Link>
               <NavDropdown
                 className="white-link "
                 title={<FaRegUserCircle className="shadowfilter" />}
                 id="basic-nav-dropdown"
               >
-                <NavDropdown.Item href="/">
-                  <span className="white-link ">Sign Up</span>
+                <NavDropdown.Item>
+                  <Link to="/">
+                    <span className="white-link ">Sign Up</span>
+                  </Link>
                 </NavDropdown.Item>
-                <NavDropdown.Item href="/">
-                  <span className="white-link">Sign In</span>
+                <NavDropdown.Item>
+                  <Link to="/">
+                    <span className="white-link">Sign In</span>
+                  </Link>
                 </NavDropdown.Item>
               </NavDropdown>
             </Nav>
