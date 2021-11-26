@@ -4,6 +4,7 @@
   border-radius: 5px;
 }
 .card-carousel {
+  width: 98% !important;
   background: rgba(255, 255, 255, 0.4) !important;
   backdrop-filter: blur(8px) !important;
   border-radius: 10px !important;

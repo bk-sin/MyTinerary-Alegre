@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "multer": "^1.4.3"
+  },
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "name": "mytinerary-alegre",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bk-sin/mytinerary-alegre.git"
+  },
+  "keywords": [
+    "itinerary",
+    "react",
+    "node",
+    "mongo"
+  ],
+  "author": "Emiliano Alegre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bk-sin/mytinerary-alegre/issues"
+  },
+  "homepage": "https://github.com/bk-sin/mytinerary-alegre#readme",
+  "description": "Proyecto de MindHub MERN"
+}

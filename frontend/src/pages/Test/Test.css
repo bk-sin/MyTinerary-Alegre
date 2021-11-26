@@ -1,0 +1,51 @@
+.test {
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
+.txt-dark {
+  color: white;
+  padding: 7px;
+  background-color: rgba(0, 0, 0, 0.698);
+  border-radius: 5px;
+}
+
+.txt-title {
+  width: 150px;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  width: 47%;
+  object-position: 0% 0%;
+}
+@media (max-width: 770px) {
+  .card {
+    width: 100%;
+  }
+  .card-img {
+    object-fit: cover;
+  }
+}
+@media (max-width: 990px) {
+  .txt-description {
+    opacity: 1;
+  }
+}
+.card-img {
+  height: 35vh;
+  object-fit: cover;
+}
+
+.txt-description {
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.card:hover .txt-description {
+  transition: 0.5s;
+
+  opacity: 1;
+}
