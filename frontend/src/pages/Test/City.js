@@ -8,16 +8,14 @@ export default function City() {
   const [city, setCity] = useState([])
 
   const params = useParams()
-  console.log(params)
 
   useEffect(() => {
     axios
       .get("http://localhost:4000/api/city/" + params.id)
       .then((response) => {
-        setCity(response.data.response)
+        setCity(response.data.response.city)
       })
   }, [])
-
   return (
     <Container fluid className="bg">
       <Container
