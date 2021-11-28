@@ -16,6 +16,9 @@
   text-align: center;
 }
 
+.SearchInput {
+  margin: auto;
+}
 .card {
   display: flex;
   width: 47%;
@@ -48,4 +51,25 @@
   transition: 0.5s;
 
   opacity: 1;
+}
+
+.SearchInput {
+  max-width: 50vw;
+  width: 100vw;
+  padding: 10px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.671);
+  border: none;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.bg {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.backbtn {
+  font-size: 3rem;
 }

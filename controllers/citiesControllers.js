@@ -4,14 +4,12 @@ const citiesControllers = {
   readCities: (req, res) => {
     const cities = City.find().then((response) => {
       res.json({response})
-      console.log(response)
     })
   },
   readCity: (req, res) => {
-    console.log(req.params.id)
-    const city = cities.find((city) => city.id.toString() === req.params.id)
-    console.log(city)
-    res.json({response: {city}})
+    const city = City.findOne({_id: req.params.id}).then((response) => {
+      res.json({response})
+    })
   },
   createCity: (req, res) => {
     const {name, src, description, _id} = req.body

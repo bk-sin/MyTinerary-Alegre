@@ -12,7 +12,7 @@ export default function Carousel() {
     axios
       .get("http://localhost:4000/api/cities")
       .then((response) => {
-        setCities(response.data.response.cities)
+        setCities(response.data.response)
         console.log(response.data.response)
         console.log(cities)
       })

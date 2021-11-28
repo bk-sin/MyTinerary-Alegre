@@ -1,0 +1,35 @@
+.backg {
+  background-image: url("../../assets/citites_background.jpg");
+  background-size: cover;
+  height: 45vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.h1back {
+  text-align: center;
+  font-size: 80px !important;
+  padding: 1rem !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(8px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 133%;
+  letter-spacing: 0;
+  text-shadow: 0 2px 4px rgb(46 46 46);
+}
+
+@media (max-width: 600px) {
+  .h1back {
+    font-size: 50px !important;
+  }
+  .backg {
+    height: 100vh;
+  }
+}

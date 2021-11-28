@@ -3,6 +3,7 @@ import {useParams, Link} from "react-router-dom"
 import axios from "axios"
 import React, {useEffect, useState} from "react"
 import "./Test.css"
+import {IoMdArrowRoundBack} from "react-icons/io"
 
 export default function City() {
   const [city, setCity] = useState([])
@@ -13,9 +14,10 @@ export default function City() {
     axios
       .get("http://localhost:4000/api/city/" + params.id)
       .then((response) => {
-        setCity(response.data.response.city)
+        setCity(response.data.response)
       })
   }, [])
+
   return (
     <Container fluid className="bg">
       <Container
@@ -34,7 +36,10 @@ export default function City() {
           </Card.ImgOverlay>
         </Card>
         <h3>Under Construction</h3>
-        <Link to="/test"> Volver </Link>
+        <Link to="/cities" className="backbtn">
+          <IoMdArrowRoundBack className="backbtn" />
+          Back to Cities
+        </Link>
       </Container>
     </Container>
   )
