@@ -1,12 +1,13 @@
-import "./Test.css"
-import TestChild from "./TestChild"
+import "./CityCards.css"
+import CardCity from "./CardCity"
 import {Container} from "react-bootstrap"
 import React, {useEffect, useState} from "react"
 import axios from "axios"
 
-export default function Test() {
+export default function CitiesCards() {
   const [cities, setCities] = useState([])
   const [search, setSearch] = useState([])
+  const [min, setMin] = useState([])
 
   useEffect(() => {
     axios.get("http://localhost:4000/api/cities").then((response) => {
@@ -15,15 +16,18 @@ export default function Test() {
   }, [])
 
   const filter = cities.filter((city) =>
-    city.name.toLowerCase().startsWith(search)
+    city.name.toLowerCase().startsWith(min)
   )
 
   return (
     <Container fluid className="bg ">
       <input
         className="SearchInput"
+        onInput={(e) => {
+          setMin(e.target.value.toLowerCase().trimStart().trimEnd())
+          setSearch(e.target.value)
+        }}
         value={search}
-        onInput={(e) => setSearch(e.target.value)}
         type="text"
         id="header-search"
         placeholder="Search a City"
@@ -33,7 +37,7 @@ export default function Test() {
       <Container className="test gap-4 justify-content-center">
         {filter.length > 0 ? (
           filter.map((city) => (
-            <TestChild name={city.name} src={city.src} id={city._id} />
+            <CardCity name={city.name} src={city.src} id={city._id} />
           ))
         ) : (
           <h1>No matching results!</h1>

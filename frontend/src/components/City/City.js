@@ -1,8 +1,8 @@
-import {Card, Container} from "react-bootstrap"
+import {Container} from "react-bootstrap"
 import {useParams, Link} from "react-router-dom"
 import axios from "axios"
 import React, {useEffect, useState} from "react"
-import "./Test.css"
+import "../../components/CityCards/CityCards.css"
 import {IoMdArrowRoundBack} from "react-icons/io"
 
 export default function City() {

@@ -21,9 +21,9 @@ export default function Carousel() {
 
   const settings = {
     className: "center",
-    centerMode: true,
+    centerMode: false,
     infinite: true,
-    centerPadding: "5px",
+    centerPadding: "1px",
     slidesToShow: 1,
     speed: 500,
     rows: 2,

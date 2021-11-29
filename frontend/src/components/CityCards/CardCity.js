@@ -1,7 +1,7 @@
 import {Card} from "react-bootstrap"
 import {Link} from "react-router-dom"
 
-export default function TestChild(props) {
+export default function CardCity(props) {
   return (
     <Card border="dark" className="text-white card">
       <Link exact to={`../city/${props.id}`}>
