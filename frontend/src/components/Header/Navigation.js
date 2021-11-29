@@ -9,10 +9,12 @@ export default function Navigations() {
     <>
       <Navbar collapseOnSelect fixed="top" expand="lg" variant="dark">
         <Container>
-          <Navbar.Brand href="/">
-            <span className="yellow">My</span>
-            <span className="white">Tinerary</span>
-          </Navbar.Brand>
+          <Link to="/">
+            <Navbar.Brand>
+              <span className="yellow">My</span>
+              <span className="white">Tinerary</span>
+            </Navbar.Brand>
+          </Link>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse
             className="barraNav justify-content-end"

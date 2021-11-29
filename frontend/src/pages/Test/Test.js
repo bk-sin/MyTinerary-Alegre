@@ -23,7 +23,7 @@ export default function Test() {
       <input
         className="SearchInput"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onInput={(e) => setSearch(e.target.value)}
         type="text"
         id="header-search"
         placeholder="Search a City"

@@ -7,6 +7,14 @@ import {IoMdArrowRoundBack} from "react-icons/io"
 
 export default function City() {
   const [city, setCity] = useState([])
+  const back = {
+    backgroundImage: "url(" + city.src + ")",
+    width: "100%",
+    height: "50vh",
+    "background-repeat": "no-repeat",
+    "background-position": "center",
+    "background-size": "cover",
+  }
 
   const params = useParams()
 
@@ -19,28 +27,20 @@ export default function City() {
   }, [])
 
   return (
-    <Container fluid className="bg">
-      <Container
-        className="test gap-4 justify-content-center flex-column
-      "
-      >
-        <Card border="dark" className="text-white card">
-          <Card.Img className="card-img" src={city.src} alt={city.name} />
-          <Card.ImgOverlay>
-            <Card.Title className="txt-dark txt-title">{city.name}</Card.Title>
-            <Card.Text className="txt-dark txt-description">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </Card.Text>
-          </Card.ImgOverlay>
-        </Card>
-        <h3>Under Construction</h3>
-        <Link to="/cities" className="backbtn">
-          <IoMdArrowRoundBack className="backbtn" />
-          Back to Cities
-        </Link>
+    <>
+      <Container fluid className="bg centramelo" style={back}>
+        <h1 className="h1back city">{city.name}</h1>
       </Container>
-    </Container>
+      <Container className="bg" fluid>
+        <Container>
+          <p className="description">{city.description}</p>
+          <Link className="backbtn" to="/cities">
+            {" "}
+            <IoMdArrowRoundBack /> Back to Cities
+          </Link>
+        </Container>
+        <h1 className="text-center under">Under construction</h1>
+      </Container>
+    </>
   )
 }

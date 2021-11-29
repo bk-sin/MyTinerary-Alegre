@@ -27,9 +27,28 @@
 
 @media (max-width: 600px) {
   .h1back {
-    font-size: 50px !important;
+    font-size: 40px !important;
   }
   .backg {
     height: 100vh;
   }
+}
+
+.centramelo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .centramelo {
+    height: 100vh !important;
+  }
+  .backbtn {
+    font-size: 16px;
+  }
+}
+
+.under {
+  margin-top: 40px;
 }

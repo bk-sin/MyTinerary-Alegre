@@ -71,5 +71,25 @@
 }
 
 .backbtn {
-  font-size: 3rem;
+  font-size: 2rem;
+  background-color: rgba(255, 255, 255, 0.685);
+  padding: 20px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.backbtn:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.description {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20.2852px;
+  line-height: 170%;
+  letter-spacing: 0.015em;
+  color: #ffffff;
 }
