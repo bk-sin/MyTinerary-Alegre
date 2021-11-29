@@ -17,14 +17,14 @@ export default function City() {
   }
 
   const params = useParams()
-
+  console.log(params)
   useEffect(() => {
     axios
       .get("http://localhost:4000/api/city/" + params.id)
       .then((response) => {
         setCity(response.data.response)
       })
-  }, [])
+  }, [params.id])
 
   return (
     <>

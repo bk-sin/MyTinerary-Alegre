@@ -9,8 +9,7 @@ export default function CardCity(props) {
         <Card.ImgOverlay>
           <Card.Title className="txt-dark txt-title">{props.name}</Card.Title>
           <Card.Text className="txt-dark txt-description">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+            {props.description}
           </Card.Text>
         </Card.ImgOverlay>
       </Link>

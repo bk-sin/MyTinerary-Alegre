@@ -4,17 +4,18 @@ import "slick-carousel/slick/slick.css"
 import Slider from "react-slick"
 import {Card, Container} from "react-bootstrap"
 import axios from "axios"
+import {useParams, Link} from "react-router-dom"
 
 export default function Carousel() {
   const [cities, setCities] = useState([])
+  const params = useParams()
+  console.log(params)
 
   useEffect(() => {
     axios
       .get("http://localhost:4000/api/cities")
       .then((response) => {
         setCities(response.data.response)
-        console.log(response.data.response)
-        console.log(cities)
       })
       .catch((err) => console.error(err.message))
   }, [])
@@ -54,7 +55,7 @@ export default function Carousel() {
           {cities.length > 0 ? (
             cities.map((city) => {
               return (
-                <div key={city.id}>
+                <div key={city._id}>
                   <Card className="m-2 card-carousel p-2">
                     <Card.Img
                       variant="top"

@@ -25,8 +25,8 @@ const citiesControllers = {
     ).then((response) => res.json({response}))
   },
   deleteCity: (req, res) => {
-    const updated = City.findOneAndRemove({_id: req.params.id}).then(
-      (response) => res.json({response})
+    City.findOneAndRemove({_id: req.params.id}).then((response) =>
+      res.json({response})
     )
   },
 }
