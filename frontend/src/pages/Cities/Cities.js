@@ -9,12 +9,17 @@ class Cities extends Component {
     this.props.getCities()
   }
   render() {
+    console.log(this.props)
     return (
       <>
         <div className="backg">
           <h1 className="h1back">Find your favorite city!</h1>
         </div>
-        <CitiesCards />
+        {this.props.cities.length > 0 ? (
+          <CitiesCards data={this.props.cities} />
+        ) : (
+          <h1>Loading...</h1>
+        )}
       </>
     )
   }
@@ -23,5 +28,10 @@ class Cities extends Component {
 const mapDispatchToProps = {
   getCities: citiesAction.getCities,
 }
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+  }
+}
 
-export default connect(null, mapDispatchToProps)(Cities)
+export default connect(mapStateToProps, mapDispatchToProps)(Cities)

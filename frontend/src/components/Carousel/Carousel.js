@@ -1,23 +1,14 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import "./Carousel.css"
 import "slick-carousel/slick/slick.css"
 import Slider from "react-slick"
 import {Card, Container} from "react-bootstrap"
-import axios from "axios"
-import {useParams, Link} from "react-router-dom"
+import {connect} from "react-redux"
+import citiesAction from "../../redux/actions/citiesActions"
 
-export default function Carousel() {
-  const [cities, setCities] = useState([])
-  const params = useParams()
-  console.log(params)
-
+function Carousel(props) {
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/cities")
-      .then((response) => {
-        setCities(response.data.response)
-      })
-      .catch((err) => console.error(err.message))
+    props.getCities()
   }, [])
 
   const settings = {
@@ -52,22 +43,24 @@ export default function Carousel() {
       <Container>
         <h1>Popular MyTineraries</h1>
         <Slider {...settings}>
-          {cities.length > 0 ? (
-            cities.map((city) => {
-              return (
-                <div key={city._id}>
-                  <Card className="m-2 card-carousel p-2">
-                    <Card.Img
-                      variant="top"
-                      className="img-carousel"
-                      src={`${city.src}`}
-                    />
-                    <Card.Body className="p-0">
-                      <Card.Title className="text-center textcard">{`${city.name}`}</Card.Title>
-                    </Card.Body>
-                  </Card>
-                </div>
-              )
+          {props.cities.length > 0 ? (
+            props.cities.map((city, index) => {
+              if (index < 12) {
+                return (
+                  <div key={city._id}>
+                    <Card className="m-2 card-carousel p-2">
+                      <Card.Img
+                        variant="top"
+                        className="img-carousel"
+                        src={`${city.src}`}
+                      />
+                      <Card.Body className="p-0">
+                        <Card.Title className="text-center textcard">{`${city.name}`}</Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </div>
+                )
+              }
             })
           ) : (
             <h1>Loading...</h1>
@@ -77,3 +70,13 @@ export default function Carousel() {
     </Container>
   )
 }
+const mapDispatchToProps = {
+  getCities: citiesAction.getCities,
+}
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carousel)

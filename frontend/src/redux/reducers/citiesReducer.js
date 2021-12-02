@@ -1,11 +1,23 @@
-const citiesReducer = (state = {getCities: []}, action) => {
+const initialState = {
+  state: [],
+  cities: [],
+  auxiliar: [],
+  city: [],
+}
+
+const citiesReducer = (state = initialState, action) => {
   switch (action.type) {
     case "GET_ALL_CITIES":
       return {
         ...state,
-        getCities: action.payload,
+        cities: action.payload,
+        auxiliar: action.payload,
       }
-
+    case "GET_A_CITY":
+      return {
+        ...state,
+        city: action.payload,
+      }
     default:
       return state
   }

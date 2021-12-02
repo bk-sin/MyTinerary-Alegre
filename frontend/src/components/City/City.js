@@ -1,41 +1,34 @@
 import {Container} from "react-bootstrap"
 import {useParams, Link} from "react-router-dom"
-import axios from "axios"
-import React, {useEffect, useState} from "react"
+import React, {useEffect} from "react"
 import "../../components/CityCards/CityCards.css"
 import {IoMdArrowRoundBack} from "react-icons/io"
 import Itineraries from "./Itineraries"
+import {connect} from "react-redux"
+import citiesAction from "../../redux/actions/citiesActions"
 
-export default function City() {
-  const [city, setCity] = useState([])
-
-  const back = {
-    backgroundImage: "url(" + city.src + ")",
-    width: "100%",
-    height: "50vh",
-    "background-repeat": "no-repeat",
-    "background-position": "center",
-    "background-size": "cover",
-  }
-
+function City(props) {
   const params = useParams()
-  console.log(params)
+
   useEffect(() => {
-    axios
-      .get("http://localhost:4000/api/city/" + params.id)
-      .then((response) => {
-        setCity(response.data.response)
-      })
-  }, [params.id])
+    props.cities.length === 0 && props.getCities()
+    props.cities.length > 0 && props.getCity(props.cities, params.id)
+  }, [props.cities])
+
+  console.log(props)
 
   return (
     <>
-      <Container fluid className="bg centramelo" style={back}>
-        <h1 className="h1back city">{city.name}</h1>
+      <Container
+        fluid
+        className="bg back centramelo"
+        style={{backgroundImage: "url(" + props.city.src + ")"}}
+      >
+        <h1 className="h1back city">{props.city.name}</h1>
       </Container>
       <Container className="bg" fluid>
         <Container>
-          <p className="description">{city.description}</p>
+          <p className="description">{props.city.description}</p>
           <Link className="backbtn" to="/cities">
             <IoMdArrowRoundBack /> Back to Cities
           </Link>
@@ -48,3 +41,16 @@ export default function City() {
     </>
   )
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cities: state.citiesReducer.cities,
+    city: state.citiesReducer.city,
+  }
+}
+const mapDispatchToProps = {
+  getCity: citiesAction.getCity,
+  getCities: citiesAction.getCities,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(City)

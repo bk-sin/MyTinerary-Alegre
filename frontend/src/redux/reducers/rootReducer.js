@@ -2,7 +2,7 @@ import {combineReducers} from "redux"
 import citiesReducer from "./citiesReducer"
 
 const rootReducer = combineReducers({
-  cities: citiesReducer,
+  citiesReducer: citiesReducer,
 })
 
 export default rootReducer
