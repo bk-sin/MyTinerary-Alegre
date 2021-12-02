@@ -1,5 +1,5 @@
 import "./CityCards.css"
-import CardCity from "./CardCity"
+import {Link} from "react-router-dom"
 import {Container} from "react-bootstrap"
 import React, {useEffect, useState} from "react"
 import axios from "axios"
@@ -14,7 +14,7 @@ export default function CitiesCards() {
     })
   }, [])
 
-  const filter = cities.filter((city) =>
+  const filtered = cities.filter((city) =>
     city.name.toLowerCase().startsWith(search)
   )
 
@@ -30,18 +30,30 @@ export default function CitiesCards() {
       />
 
       <Container className="test gap-4 justify-content-center">
-        {filter.length > 0 ? (
-          filter.map((city) => (
-            <CardCity
-              name={city.name}
-              src={city.src}
-              id={city._id}
-              description={city.description}
-            />
-          ))
-        ) : (
-          <h1>No matching results!</h1>
-        )}
+        <div class="cartas">
+          {filtered > 0 ? (
+            filtered.map((city, index) => (
+              <Link className="cartalink" to={`/city/${city._id}`}>
+                <div
+                  class={`carta ${
+                    index === 5 || index === 10 ? "paddtop" : ""
+                  }`}
+                  style={{backgroundImage: "url(" + city.src + ")"}}
+                >
+                  <div class="carta-content">
+                    <h2 class="carta-title">{city.name}</h2>
+                    {/* <p class="card-body">{city.description}</p> */}
+                    <Link to={`/city/${city._id}`} class="boton">
+                      Learn more
+                    </Link>
+                  </div>
+                </div>
+              </Link>
+            ))
+          ) : (
+            <h1>Loading...</h1>
+          )}
+        </div>
       </Container>
     </Container>
   )

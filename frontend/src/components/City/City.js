@@ -4,9 +4,11 @@ import axios from "axios"
 import React, {useEffect, useState} from "react"
 import "../../components/CityCards/CityCards.css"
 import {IoMdArrowRoundBack} from "react-icons/io"
+import Itineraries from "./Itineraries"
 
 export default function City() {
   const [city, setCity] = useState([])
+
   const back = {
     backgroundImage: "url(" + city.src + ")",
     width: "100%",
@@ -35,11 +37,13 @@ export default function City() {
         <Container>
           <p className="description">{city.description}</p>
           <Link className="backbtn" to="/cities">
-            {" "}
             <IoMdArrowRoundBack /> Back to Cities
           </Link>
         </Container>
+
         <h1 className="text-center under">Under construction</h1>
+
+        <Itineraries />
       </Container>
     </>
   )

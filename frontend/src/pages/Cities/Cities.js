@@ -1,8 +1,13 @@
 import React, {Component} from "react"
-import CitiesCards from "../../components/CityCards/CitiesCards"
+import {connect} from "react-redux"
+import CitiesCards from "../../components/CitiesCards/CitiesCards"
 import "./Cities.css"
+import citiesAction from "../../redux/actions/citiesActions"
 
-export default class Cities extends Component {
+class Cities extends Component {
+  componentDidMount() {
+    this.props.getCities()
+  }
   render() {
     return (
       <>
@@ -14,3 +19,9 @@ export default class Cities extends Component {
     )
   }
 }
+
+const mapDispatchToProps = {
+  getCities: citiesAction.getCities,
+}
+
+export default connect(null, mapDispatchToProps)(Cities)
