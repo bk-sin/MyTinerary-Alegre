@@ -18,6 +18,14 @@ const citiesReducer = (state = initialState, action) => {
         ...state,
         city: action.payload,
       }
+    case "SEARCH":
+      const filtered = action.payload.cities.filter((city) =>
+        city.name.toLowerCase().startsWith(action.payload.search.toLowerCase())
+      )
+      return {
+        ...state,
+        auxiliar: filtered,
+      }
     default:
       return state
   }

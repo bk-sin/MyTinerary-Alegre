@@ -145,7 +145,7 @@
 @media (min-width: 770px) {
   .cartas {
     padding: 12px 0;
-    width: max-content;
+    width: 70%;
     margin: auto;
     grid-template-columns: repeat(3, 32.7%);
     grid-template-rows: repeat(3, 180px);
@@ -180,4 +180,9 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+.center {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
 }

@@ -19,6 +19,11 @@ const citiesAction = {
       })
     }
   },
+  filterCities: (cities, search) => {
+    return (dispatch) => {
+      dispatch({type: "SEARCH", payload: {cities, search}})
+    }
+  },
 }
 
 export default citiesAction

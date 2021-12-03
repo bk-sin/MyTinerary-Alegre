@@ -1,25 +1,31 @@
-import {useState} from "react"
 import "./CitiesCards.css"
 import {Link} from "react-router-dom"
+import {Container} from "react-bootstrap"
+import citiesAction from "../../redux/actions/citiesActions"
+import {connect} from "react-redux"
 
 function CitiesCards(props) {
-  const [search, setSearch] = useState([])
-  const filtered = props.data.filter((city) =>
-    city.name.toLowerCase().startsWith(search)
-  )
+  !props.cities[0] && props.getCities()
 
+  console.log(props)
   return (
     <>
-      <input
-        className="SearchInput"
-        onInput={(e) => setSearch(e.target.value.toLowerCase().trim())}
-        type="text"
-        placeholder="Search a City"
-      />
-
+      <Container className="center">
+        <input
+          className="SearchInput"
+          onChange={(e) =>
+            props.filterCities(
+              props.cities,
+              e.target.value.toLowerCase().trim()
+            )
+          }
+          type="text"
+          placeholder="Search a City"
+        />
+      </Container>
       <div class="cartas">
-        {filtered.length > 0 ? (
-          filtered.map((city, index) => (
+        {props.auxiliar[0] ? (
+          props.auxiliar.map((city, index) => (
             <Link className="cartalink" to={`/city/${city._id}`}>
               <div
                 class={`carta ${index === 5 || index === 10 ? "paddtop" : ""}`}
@@ -41,5 +47,16 @@ function CitiesCards(props) {
     </>
   )
 }
+const mapDispatchToProps = {
+  filterCities: citiesAction.filterCities,
+  getCities: citiesAction.getCities,
+}
 
-export default CitiesCards
+const mapStateToProps = (state) => {
+  return {
+    auxiliar: state.citiesReducer.auxiliar,
+    cities: state.citiesReducer.cities,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CitiesCards)

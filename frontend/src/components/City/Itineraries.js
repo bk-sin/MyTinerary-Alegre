@@ -40,7 +40,7 @@ export default function Itineraries() {
           <div className="tag">#TourEiffel</div>
           <div className="tag">#CityOfLove</div>
         </div>
-        <button className="boton">View more</button>
+        <button className="botonaso">View more</button>
       </div>
     </div>
   )

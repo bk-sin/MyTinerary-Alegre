@@ -16,9 +16,6 @@
   text-align: center;
 }
 
-.SearchInput {
-  margin: auto;
-}
 .card {
   display: flex;
   width: 47%;
@@ -59,9 +56,10 @@
   padding: 10px;
   margin-bottom: 16px;
   background: rgba(255, 255, 255, 0.671);
-  border: none;
   text-align: center;
   font-size: 2rem;
+  border-radius: 10px;
+  border-color: violet;
 }
 
 .bg {

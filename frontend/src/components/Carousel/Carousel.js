@@ -1,4 +1,3 @@
-import React, {useEffect} from "react"
 import "./Carousel.css"
 import "slick-carousel/slick/slick.css"
 import Slider from "react-slick"
@@ -7,10 +6,7 @@ import {connect} from "react-redux"
 import citiesAction from "../../redux/actions/citiesActions"
 
 function Carousel(props) {
-  useEffect(() => {
-    props.getCities()
-  }, [])
-
+  !props.cities[0] && props.getCities()
   const settings = {
     className: "center",
     centerMode: false,
