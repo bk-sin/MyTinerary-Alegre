@@ -3,6 +3,7 @@ const initialState = {
   cities: [],
   auxiliar: [],
   city: [],
+  itineraries: [],
 }
 
 const citiesReducer = (state = initialState, action) => {
@@ -14,9 +15,12 @@ const citiesReducer = (state = initialState, action) => {
         auxiliar: action.payload,
       }
     case "GET_A_CITY":
+      const city = action.payload.cities.find(
+        (elem) => elem._id === action.payload.id
+      )
       return {
         ...state,
-        city: action.payload,
+        city: city,
       }
     case "SEARCH":
       const filtered = action.payload.cities.filter((city) =>
@@ -25,6 +29,11 @@ const citiesReducer = (state = initialState, action) => {
       return {
         ...state,
         auxiliar: filtered,
+      }
+    case "GET_ALL_ITINERARIES":
+      return {
+        ...state,
+        itineraries: action.payload,
       }
     default:
       return state

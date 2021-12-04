@@ -12,16 +12,24 @@ const citiesAction = {
   },
   getCity: (cities, id) => {
     return (dispatch, getState) => {
-      const city = cities.find((elem) => elem._id === id)
       dispatch({
         type: "GET_A_CITY",
-        payload: city,
+        payload: {cities, id},
       })
     }
   },
   filterCities: (cities, search) => {
     return (dispatch) => {
       dispatch({type: "SEARCH", payload: {cities, search}})
+    }
+  },
+  getItineraries: () => {
+    return async (dispatch, getState) => {
+      let response = await axios.get("http://localhost:4000/api/itineraries")
+      dispatch({
+        type: "GET_ALL_ITINERARIES",
+        payload: response.data.response,
+      })
     }
   },
 }

@@ -3,6 +3,7 @@ const Itinerary = require("../models/Itinerary")
 const itinerariesControllers = {
   readItineraries: (req, res) => {
     Itinerary.find()
+      .populate("city")
       .then((response) => {
         res.json({response})
       })
@@ -16,9 +17,11 @@ const itinerariesControllers = {
       .catch((err) => console.log(err))
   },
   createItinerary: (req, res) => {
-    const {name, src, price, duration, likes, hashtags, comments} = req.body
+    const {name, title, src, price, duration, likes, hashtags, comments} =
+      req.body
     const itinerary = new Itinerary({
       name,
+      title,
       src,
       price,
       duration,
@@ -31,11 +34,9 @@ const itinerariesControllers = {
       .catch((err) => console.log(err))
   },
   modifyItinerary: (req, res) => {
-    Itinerary.findOneAndUpdate(
-      {_id: req.params.id},
-      {...req.body},
-      {new: true}
-    ).then((response) => res.json({response}))
+    Itinerary.findOneAndUpdate({_id: req.params.id}, {...req.body})
+      .then((response) => res.json({response}))
+      .catch((err) => console.log(err))
   },
   deleteItinerary: (req, res) => {
     Itinerary.findOneAndRemove({_id: req.params.id})

@@ -46,6 +46,7 @@
   }
 }
 .socialPadre {
+  z-index: 10;
   width: 100%;
   background: linear-gradient(270deg, #efd862 0%, #ffbfb6 100%);
 }

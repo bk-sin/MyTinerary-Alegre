@@ -52,9 +52,12 @@
   letter-spacing: 0.015em;
   color: #ffffff;
 }
+.stagger {
+  opacity: 0;
+}
 .btnCallToAction {
   border: none;
-
+  opacity: 0;
   max-width: 498px;
   width: 87vw;
 
@@ -92,10 +95,10 @@
   width: 646px;
   height: 646px;
   right: 300px;
-  bottom: 70px;
+  bottom: 200px;
   border-radius: 50%;
-  background: #ffffff;
-  opacity: 0.8;
+  background: white;
+  opacity: 0.6;
   filter: blur(100px);
 }
 .palmera {
