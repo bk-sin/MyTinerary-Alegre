@@ -84,6 +84,24 @@
   padding: 5px;
   text-shadow: 0 2px 4px rgb(46 46 46);
 }
+.tag::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: -0.25em;
+  right: -0.25em;
+  background: linear-gradient(145deg, #8489ff 0.23%, #61c0f5 99.79%);
+  transform-origin: bottom center;
+  transform: scaleY(0.1);
+  transition: all 0.1s ease-in-out;
+}
+
+.tag:hover::before {
+  transform: scaleY(1);
+  background: linear-gradient(145deg, #8489ff 0.23%, #61c0f5 99.79%);
+}
 
 .price {
   color: rgb(97, 216, 97);

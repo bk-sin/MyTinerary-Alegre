@@ -10,6 +10,7 @@ const {
   createItinerary,
   deleteItinerary,
   modifyItinerary,
+  readItinerariesByCity,
 } = itinerariesControllers
 
 Router.route("/cities").get(readCities).post(createCity)
@@ -22,5 +23,7 @@ Router.route("/itinerary/:id")
   .get(readItinerary)
   .put(modifyItinerary)
   .delete(deleteItinerary)
+
+Router.route("/itineraries/:city").get(readItinerariesByCity)
 
 module.exports = Router

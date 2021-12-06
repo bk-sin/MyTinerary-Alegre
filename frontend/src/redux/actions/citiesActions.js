@@ -23,11 +23,13 @@ const citiesAction = {
       dispatch({type: "SEARCH", payload: {cities, search}})
     }
   },
-  getItineraries: () => {
+  getItinerariesByCityId: (city_id) => {
     return async (dispatch, getState) => {
-      let response = await axios.get("http://localhost:4000/api/itineraries")
+      let response = await axios.get(
+        "http://localhost:4000/api/itineraries/" + city_id
+      )
       dispatch({
-        type: "GET_ALL_ITINERARIES",
+        type: "GET_ITINERARIES_BY_CITY_ID",
         payload: response.data.response,
       })
     }

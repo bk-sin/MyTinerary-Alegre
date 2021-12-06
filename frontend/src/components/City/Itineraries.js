@@ -1,11 +1,17 @@
 import "./Itineraries.css"
 import {RiMoneyDollarBoxFill} from "react-icons/ri"
+import {Button, Collapse} from "react-bootstrap"
+import {useState} from "react"
 
 export default function Itineraries(props) {
-  console.log(props)
+  const [open, setOpen] = useState("")
+  function price(price) {
+    return Array.from({length: price})
+  }
+
   return (
-    props.itinerariesFiltered.length > 0 &&
-    props.itinerariesFiltered.map((itinerary) => (
+    props.itineraries.length > 0 &&
+    props.itineraries.map((itinerary) => (
       <div className="itinerary">
         <h2 className="itinerary-title">{itinerary.title}</h2>
         <div className="itinerary-content">
@@ -13,32 +19,39 @@ export default function Itineraries(props) {
           <h2 className="itinerary-username">{itinerary.name}</h2>
           <div className="itinerary-interactions">
             <div className="itinerary-likes interaction">
-              <p>2</p>
+              <p>{itinerary.likes}</p>
               <span className="icon heart">❤</span>
             </div>
             <div className="itinerary-price interaction">
               <p>Price:</p>
               <span className="icon price">
-                {" "}
-                <RiMoneyDollarBoxFill />
-                <RiMoneyDollarBoxFill />
-                <RiMoneyDollarBoxFill />
-                <RiMoneyDollarBoxFill />
-                <RiMoneyDollarBoxFill />
+                {price(itinerary.price).map(() => (
+                  <RiMoneyDollarBoxFill />
+                ))}
               </span>
             </div>
             <div className="itinerary-duration interaction">
-              <p>4hs</p>
+              <p>{itinerary.duration}Hs</p>
               <span className="icon ">⏲</span>
             </div>
           </div>
           <div className="tags">
-            <div className="tag">#MoulinRouge</div>
-            <div className="tag">#NightInParis</div>
-            <div className="tag">#TourEiffel</div>
-            <div className="tag">#CityOfLove</div>
+            {itinerary.hashtags.map((hash) => (
+              <div className="tag">#{hash}</div>
+            ))}
           </div>
-          <button className="botonaso">View more</button>
+          <Button
+            className="btn-warning p-1 fs-6 fw-normal m-1 botonaso
+            "
+            onClick={() => setOpen(!open)}
+            aria-controls="example-fade-text"
+            aria-expanded={open}
+          >
+            {!open ? "View more" : "View less"}
+          </Button>
+          <Collapse in={open}>
+            <div id="example-collapse-text">Under Construction....</div>
+          </Collapse>
         </div>
       </div>
     ))

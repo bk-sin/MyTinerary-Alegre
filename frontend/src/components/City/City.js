@@ -1,29 +1,22 @@
 import {Container} from "react-bootstrap"
 import {useParams, Link} from "react-router-dom"
-import {useEffect, useState} from "react"
+import {useEffect} from "react"
 import "../../components/CityCards/CityCards.css"
 import {IoMdArrowRoundBack} from "react-icons/io"
 import Itineraries from "./Itineraries"
 import {connect} from "react-redux"
 import citiesAction from "../../redux/actions/citiesActions"
+import itinerariesAction from "../../redux/actions/citiesActions"
 
 function City(props) {
-  const [itinerariesFiltered, setItinerariesFiltered] = useState([])
+  const params = useParams()
+
   useEffect(() => {
     !props.cities[0] && props.getCities()
-    !props.itineraries[0] && props.getItineraries()
     props.cities[0] && props.getCity(props.cities, params.id)
+    props.getItinerariesByCityId(params.id)
+  }, [props.cities])
 
-    if (props.itineraries.length > 0) {
-      setItinerariesFiltered(
-        props.itineraries.filter(
-          (itinerary) => itinerary.city._id === params.id
-        )
-      )
-    }
-  }, [props.cities, props.itineraries])
-
-  const params = useParams()
   return (
     <>
       <Container
@@ -40,8 +33,8 @@ function City(props) {
             <IoMdArrowRoundBack /> Back to Cities
           </Link>
         </Container>
-        {itinerariesFiltered.length > 0 ? (
-          <Itineraries itinerariesFiltered={itinerariesFiltered} />
+        {props.itineraries[0] ? (
+          <Itineraries itineraries={props.itineraries} />
         ) : (
           <h1 className="text-center under">Under construction</h1>
         )}
@@ -54,13 +47,13 @@ const mapStateToProps = (state) => {
   return {
     cities: state.citiesReducer.cities,
     city: state.citiesReducer.city,
-    itineraries: state.citiesReducer.itineraries,
+    itineraries: state.itinerariesReducer.itineraries,
   }
 }
 const mapDispatchToProps = {
   getCity: citiesAction.getCity,
   getCities: citiesAction.getCities,
-  getItineraries: citiesAction.getItineraries,
+  getItinerariesByCityId: itinerariesAction.getItinerariesByCityId,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(City)

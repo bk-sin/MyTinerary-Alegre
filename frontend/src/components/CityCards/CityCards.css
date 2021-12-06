@@ -59,7 +59,7 @@
   text-align: center;
   font-size: 2rem;
   border-radius: 10px;
-  border-color: violet;
+  border: none;
 }
 
 .bg {

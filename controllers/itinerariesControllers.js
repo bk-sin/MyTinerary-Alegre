@@ -9,6 +9,14 @@ const itinerariesControllers = {
       })
       .catch((err) => console.log(err))
   },
+  readItinerariesByCity: (req, res) => {
+    Itinerary.find({city: {_id: req.params.city}})
+      .populate("city")
+      .then((response) => {
+        res.json({response})
+      })
+      .catch((err) => console.log(err))
+  },
   readItinerary: (req, res) => {
     Itinerary.findOne({_id: req.params.id})
       .then((response) => {

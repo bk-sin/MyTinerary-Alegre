@@ -9,7 +9,7 @@ function CitiesCards(props) {
 
   console.log(props)
   return (
-    <>
+    <div className="bg">
       <Container className="center">
         <input
           className="SearchInput"
@@ -24,27 +24,35 @@ function CitiesCards(props) {
         />
       </Container>
       <div class="cartas">
-        {props.auxiliar[0] ? (
-          props.auxiliar.map((city, index) => (
-            <Link className="cartalink" to={`/city/${city._id}`}>
-              <div
-                class={`carta ${index === 5 || index === 10 ? "paddtop" : ""}`}
-                style={{backgroundImage: "url(" + city.src + ")"}}
-              >
-                <div class="carta-content">
-                  <h2 class="carta-title">{city.name}</h2>
-                  <Link to={`/city/${city._id}`} class="boton">
-                    Learn more
-                  </Link>
+        {props.cities[0] ? (
+          props.auxiliar[0] ? (
+            props.auxiliar.map((city, index) => (
+              <Link className="cartalink" to={`/city/${city._id}`}>
+                <div
+                  class={`carta ${
+                    index === 5 || index === 10 ? "paddtop" : ""
+                  }`}
+                  style={{backgroundImage: "url(" + city.src + ")"}}
+                >
+                  <div class="carta-content">
+                    <h2 class="carta-title">{city.name}</h2>
+                    <Link to={`/city/${city._id}`} class="boton">
+                      Learn more
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))
+              </Link>
+            ))
+          ) : (
+            <h1>No matching results!</h1>
+          )
         ) : (
-          <h1>No matching results!</h1>
+          <svg className="spinner" viewBox="25 25 50 50">
+            <circle cx="50" cy="50" r="20"></circle>
+          </svg>
         )}
       </div>
-    </>
+    </div>
   )
 }
 const mapDispatchToProps = {
