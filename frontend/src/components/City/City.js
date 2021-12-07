@@ -1,12 +1,13 @@
 import {Container} from "react-bootstrap"
 import {useParams, Link} from "react-router-dom"
-import {useEffect} from "react"
+import {useEffect, useState} from "react"
 import "../../components/CityCards/CityCards.css"
 import {IoMdArrowRoundBack} from "react-icons/io"
 import Itineraries from "./Itineraries"
 import {connect} from "react-redux"
 import citiesAction from "../../redux/actions/citiesActions"
 import itinerariesAction from "../../redux/actions/citiesActions"
+import {Spinner} from "react-bootstrap"
 
 function City(props) {
   const params = useParams()
@@ -33,10 +34,16 @@ function City(props) {
             <IoMdArrowRoundBack /> Back to Cities
           </Link>
         </Container>
-        {props.itineraries[0] ? (
-          <Itineraries itineraries={props.itineraries} />
+        {props.cities[0] ? (
+          props.itineraries.length > 0 ? (
+            props.itineraries.map((itinerary) => (
+              <Itineraries itinerary={itinerary} />
+            ))
+          ) : (
+            <h1>There are not itineraries for this city yet...</h1>
+          )
         ) : (
-          <h1 className="text-center under">Under construction</h1>
+          <Spinner className="spinner" animation="border" variant="warning" />
         )}
       </Container>
     </>
