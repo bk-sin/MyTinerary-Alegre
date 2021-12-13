@@ -31,10 +31,6 @@ Router.route("/itinerary/:id")
 Router.route("/itineraries/:city").get(readItinerariesByCity)
 
 Router.route("/auth/signup").post(validator, signupUser)
-/* Router.route("/auth/signin").post(
-  passport.authenticate("jwt", {session: false}),
-  signinUser
-) */
 Router.route("/auth/signin").post(signinUser)
 Router.route("/auth/getusers").get(readUsers)
 

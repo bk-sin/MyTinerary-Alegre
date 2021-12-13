@@ -114,6 +114,7 @@ function SignUp(props) {
                         ref={password}
                         required
                         minlength="8"
+                        maxlength="20"
                       ></input>
                     </div>
                     <div className="name inputlabel">

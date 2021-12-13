@@ -45,12 +45,11 @@ const authControllers = {
     const {email, password} = req.body
     try {
       const user = await User.findOne({email})
-
+      console.log(User.findOne({email}))
       if (user) {
         const passwordIsOk = bcryptjs.compareSync(password, user.password)
         if (passwordIsOk) {
           const token = jwt.sign({...user}, process.env.SECRET_KEY)
-          console.log(req.user)
           res.json({
             success: true,
             response: [
