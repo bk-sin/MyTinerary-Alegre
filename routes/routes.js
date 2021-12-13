@@ -1,6 +1,9 @@
 const Router = require("express").Router()
 const citiesControllers = require("../controllers/citiesControllers")
 const itinerariesControllers = require("../controllers/itinerariesControllers")
+const authControllers = require("../controllers/authControllers")
+const validator = require("../config/validator")
+const passport = require("../config/passport")
 const {readCity, readCities, createCity, deleteCity, modifyCity} =
   citiesControllers
 
@@ -13,6 +16,7 @@ const {
   readItinerariesByCity,
 } = itinerariesControllers
 
+const {signupUser, signinUser, readUsers, token} = authControllers
 Router.route("/cities").get(readCities).post(createCity)
 
 Router.route("/city/:id").get(readCity).put(modifyCity).delete(deleteCity)
@@ -25,5 +29,15 @@ Router.route("/itinerary/:id")
   .delete(deleteItinerary)
 
 Router.route("/itineraries/:city").get(readItinerariesByCity)
+
+Router.route("/auth/signup").post(validator, signupUser)
+/* Router.route("/auth/signin").post(
+  passport.authenticate("jwt", {session: false}),
+  signinUser
+) */
+Router.route("/auth/signin").post(signinUser)
+Router.route("/auth/getusers").get(readUsers)
+
+Router.route("/auth").get(passport.authenticate("jwt", {session: false}), token)
 
 module.exports = Router

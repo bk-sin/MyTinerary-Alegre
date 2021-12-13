@@ -1,0 +1,270 @@
+.signMain {
+  min-height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(0.5rem);
+  z-index: 0;
+}
+
+.signBody {
+  width: 100%;
+  height: 90vh;
+  max-width: 1200px;
+  display: flex;
+
+  border: 4px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 23px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 46px;
+  z-index: 3 !important;
+}
+
+.signLine {
+  width: 0px;
+  height: 100%;
+
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.signImage {
+  border-radius: 42px 0px 0px 42px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.signintextBack {
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.backMyTinerary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: url(https://i.imgur.com/7VKaHrE.png),
+    linear-gradient(180deg, #61c0f5 0%, #8489ff 100%);
+  background-size: cover !important;
+  border-radius: 0px 42px 42px 0px;
+}
+
+.backForm {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  height: 90%;
+
+  background: rgba(226, 226, 226, 0.28);
+  border-radius: 33px;
+}
+.backForm > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-signin {
+  align-self: center;
+  width: 100%;
+  text-align: center;
+}
+
+.signInTitle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 85px;
+  text-align: center;
+  color: #ffffff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signTitle {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 85px;
+  text-align: center;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signP {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 44px;
+
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.signUp {
+  color: #505050;
+}
+
+.signIn {
+  color: #ffffff;
+}
+
+.btn-signin {
+  margin: 0.5rem;
+  padding: 0.4em;
+  border: none;
+  border-radius: 50px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+}
+
+.noAccount {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+.noAccount > p {
+  font-family: Montserrat;
+  text-align: center;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 20px;
+
+  color: #ffffff;
+}
+
+.callToActionSignUp {
+  text-decoration: none;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #ffffff;
+  padding: 0.2em;
+  align-self: center;
+  width: 70%;
+  border: 7px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 30px;
+  background-color: rgba(255, 255, 255, 0);
+  transition: 0.2s;
+  text-align: center;
+}
+
+.callToActionSignUp:hover {
+  color: black;
+  background: white;
+}
+
+.or {
+  display: flex;
+  align-items: center;
+}
+.or > p {
+  margin: 0;
+  padding: 0.5rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+
+  color: #ffffff;
+}
+.line {
+  width: 100%;
+  height: 0px;
+  border: 1px solid #ffffff;
+}
+.formSignUp {
+  display: flex;
+  flex-direction: column;
+}
+.labelsInputs {
+  width: 100%;
+}
+
+.inputlabel {
+  margin: 0.3rem 0;
+  display: flex;
+  width: 100%;
+}
+.inputlabel > label {
+  width: 31%;
+  margin-right: 0.3rem;
+
+  font-family: Montserrat;
+  padding: 0.7rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  background: #ffffff;
+  border-radius: 30px;
+  height: max-content;
+  color: #505050;
+}
+
+.inputlabel > input {
+  width: 65%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 7px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 30px;
+}
+
+input:focus {
+  outline: none;
+}
+select:focus {
+  outline: none;
+}
+
+select {
+  width: 65%;
+}
+.btn-signup {
+  padding: 0.4em;
+  border: none;
+  border-radius: 50px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #505050;
+}
+
+@media (max-width: 1185px) {
+  .signImage {
+    display: none;
+  }
+  .signLine {
+    display: none;
+  }
+  .backMyTinerary {
+    border-radius: 46px;
+  }
+}
+
+.Submit {
+  background: linear-gradient(90deg, #efd862 0%, #ffbfb6 100%);
+  transition: 0.5s;
+  background-size: 200% auto;
+  width: 70%;
+  color: #505050;
+}
+
+.Submit:hover {
+  box-shadow: 0px 3.52663px 35.2663px rgba(255, 185, 175, 0.5);
+
+  background-position: right center;
+}
