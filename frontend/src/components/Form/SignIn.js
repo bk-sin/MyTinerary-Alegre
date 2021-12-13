@@ -9,7 +9,11 @@ import {useNavigate} from "react-router-dom"
 function SignIn(props) {
   let navigate = useNavigate()
   const responseGoogle = (response) => {
-    console.log(response)
+    props.signinUser(
+      response.profileObj.email,
+      response.profileObj.googleId,
+      true
+    )
   }
   !props.token && props.tokenDale()
   const email = useRef()
