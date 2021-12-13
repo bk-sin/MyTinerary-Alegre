@@ -77,6 +77,9 @@ function SignUp(props) {
                         id="name"
                         className="btn-signup"
                         ref={name}
+                        required
+                        minlength="3"
+                        maxlength="20"
                       ></input>
                     </div>
 
@@ -87,15 +90,19 @@ function SignUp(props) {
                         id="lastname"
                         className="btn-signup"
                         ref={lastname}
+                        required
+                        minlength="3"
+                        maxlength="20"
                       ></input>
                     </div>
                     <div className="name inputlabel">
                       <label htmlFor="email">Email</label>
                       <input
-                        type="text"
+                        type="email"
                         id="email"
                         className="btn-signup"
                         ref={email}
+                        required
                       ></input>
                     </div>
                     <div className="name inputlabel">
@@ -105,14 +112,17 @@ function SignUp(props) {
                         id="password"
                         className="btn-signup"
                         ref={password}
+                        required
+                        minlength="8"
                       ></input>
                     </div>
                     <div className="name inputlabel">
                       <label htmlFor="photo">Photo</label>
                       <input
-                        type="text"
+                        type="string"
                         id="photo"
                         className="btn-signup"
+                        required
                         ref={photo}
                       ></input>
                     </div>
