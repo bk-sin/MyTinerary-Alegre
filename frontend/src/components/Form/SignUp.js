@@ -12,7 +12,7 @@ function SignUp(props) {
   console.log(props)
   let navigate = useNavigate()
 
-  !props.token && props.tokenDale()
+  localStorage.getItem("token") && !props.token && props.tokenDale()
   props.token && navigate("/", {replace: true})
   const responseGoogle = (res) => {
     props.signupUser(

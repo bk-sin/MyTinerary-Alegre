@@ -7,7 +7,7 @@ import {connect} from "react-redux"
 import {FaRegUserCircle} from "react-icons/fa"
 
 function Navigations(props) {
-  !props.token && props.tokenDale()
+  localStorage.getItem("token") && !props.token && props.tokenDale()
   return (
     <>
       <Navbar collapseOnSelect fixed="top" expand="lg" variant="dark">

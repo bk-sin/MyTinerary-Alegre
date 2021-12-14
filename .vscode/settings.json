@@ -1,4 +1,5 @@
 {
   "cSpell.ignoreWords": ["Emiliano", "ixuvo", "mytinerary"],
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "search.useIgnoreFiles": false
 }

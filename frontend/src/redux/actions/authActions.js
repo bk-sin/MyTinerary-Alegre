@@ -1,4 +1,5 @@
 import axios from "axios"
+import {toast} from "react-toastify"
 
 const authAction = {
   signupUser: (email, password, name, lastname, photo, country, google) => {
@@ -25,10 +26,10 @@ const authAction = {
           })
         } else {
           console.error(response.data.response)
-          return {error: [{message: response.data.error}]}
+          return {error: "response"}
         }
       } catch (error) {
-        console.error(error)
+        console.error("error")
       }
     }
   },
@@ -45,12 +46,14 @@ const authAction = {
         if (response.data.success) {
           localStorage.setItem("token", response.data.response[0].token)
           console.log(response.data.response)
+          toast.success("Logueado pa")
+
           dispatch({
             type: "SIGNIN_USER",
             payload: response.data.response[0],
           })
         } else {
-          alert(response.data.error.messages)
+          toast.error("no Logueado pa")
         }
       } catch (error) {
         console.error(error)
@@ -74,9 +77,7 @@ const authAction = {
           type: "TOKEN",
           payload: response.data,
         })
-      } catch (error) {
-        console.error(error)
-      }
+      } catch (error) {}
     }
   },
   signOut: () => {

@@ -15,7 +15,8 @@ function SignIn(props) {
       true
     )
   }
-  !props.token && props.tokenDale()
+
+  localStorage.getItem("token") && !props.token && props.tokenDale()
   const email = useRef()
   const password = useRef()
   function handleSignIn(e) {
