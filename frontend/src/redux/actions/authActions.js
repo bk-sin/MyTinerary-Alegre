@@ -19,16 +19,18 @@ const authAction = {
         )
         if (response.data.success && !response.data.error) {
           localStorage.setItem("token", response.data.response.token)
+          toast.success(
+            "Welcome to MyTinerary " + response.data.response.newUser.name
+          )
           dispatch({
             type: "NEW_USER",
             payload: response.data.response,
           })
         } else {
-          console.error(response.data.response)
-          return {error: "response"}
+          toast.error(response.data.errors)
         }
       } catch (error) {
-        console.error("error")
+        console.error(error)
       }
     }
   },

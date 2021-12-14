@@ -2,8 +2,8 @@ const joi = require("joi")
 
 const validator = (req, res, next) => {
   const schema = joi.object({
-    name: joi.string(),
-    lastname: joi.string(),
+    name: joi.string().max(30).min(3).required(),
+    lastname: joi.string().max(30).min(3).required(),
     email: joi.string().max(30).min(10).trim().required().messages({
       "string.empty": "This field is required",
       "string.min": "This field need at least 3 characters",
@@ -12,8 +12,8 @@ const validator = (req, res, next) => {
       "string.empty": "The password is required",
       "string.min": "The password needs more than 8 characters",
     }),
-    photo: joi.string(),
-    country: joi.string(),
+    photo: joi.string().max(300).min(3).required(),
+    country: joi.string().max(30).min(3).required(),
     google: joi.boolean(),
   })
 

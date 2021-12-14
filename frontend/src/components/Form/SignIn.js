@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom"
 
 function SignIn(props) {
   let navigate = useNavigate()
+
   const responseGoogle = (response) => {
     props.signinUser(
       response.profileObj.email,
@@ -15,9 +16,11 @@ function SignIn(props) {
       true
     )
   }
+
   props.token && navigate("/", {replace: true})
 
   localStorage.getItem("token") && !props.token && props.tokenDale()
+
   const email = useRef()
   const password = useRef()
   function handleSignIn(e) {

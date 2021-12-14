@@ -30,7 +30,7 @@
 
 .signImage {
   border-radius: 42px 0px 0px 42px;
-  width: 100%;
+  width: 50%;
   height: 100%;
   object-fit: cover;
   z-index: 0;
@@ -45,7 +45,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 50%;
   height: 100%;
   background: url(https://i.imgur.com/7VKaHrE.png),
     linear-gradient(180deg, #61c0f5 0%, #8489ff 100%);
@@ -262,6 +262,7 @@ select {
   background: linear-gradient(90deg, #efd862 0%, #ffbfb6 100%);
   transition: 0.5s;
   margin: 0;
+  margin: 0.5rem;
   background-size: 200% auto;
   width: 70%;
   color: #505050;
@@ -275,4 +276,12 @@ select {
 
 .google-btn {
   margin: 0.5rem;
+}
+
+.su {
+  background: linear-gradient(180deg, #efd862 0%, #ffbfb6 100%) !important;
+}
+
+.sub {
+  color: #505050;
 }

@@ -29,7 +29,7 @@ function CitiesCards(props) {
               <Link key={index} className="cartalink" to={`/city/${city._id}`}>
                 <div
                   className={`carta ${
-                    index === 5 || index === "10" ? "paddtop" : ""
+                    index === 5 || index === 10 ? "paddtop" : ""
                   }`}
                   style={{backgroundImage: "url(" + city.src + ")"}}
                 >

@@ -55,12 +55,12 @@ function SignUp(props) {
     <div className="signMain">
       <div className="signBody">
         <img
-          src="https://i.imgur.com/FYtTskU.jpg"
+          src="https://i.imgur.com/CsC2BF0.jpg"
           alt=""
           className="signImage"
         />
         <div className="signLine"></div>
-        <div className="backMyTinerary">
+        <div className="backMyTinerary  su">
           <div className="backForm">
             <h1 className="signUp signTitle">Travel The World</h1>
             <p className="signUp signP">Sign up MyTinerary now</p>
@@ -145,7 +145,11 @@ function SignUp(props) {
                       </select>
                     </div>
                   </div>
-                  <input type="submit" className="btn-signup" value="Sign up" />
+                  <input
+                    type="submit"
+                    className="btn-signup "
+                    value="Sign up"
+                  />
                 </form>
                 <button
                   className="btn-signin Submit"
@@ -169,7 +173,7 @@ function SignUp(props) {
                 />
                 <div className="noAccount">
                   <p>Don't have an account yet?</p>
-                  <Link to="/signin" className="callToActionSignUp">
+                  <Link to="/signin" className="callToActionSignUp sub">
                     Sign in
                   </Link>
                 </div>
