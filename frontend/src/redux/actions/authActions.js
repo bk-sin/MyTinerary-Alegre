@@ -43,17 +43,20 @@ const authAction = {
             password,
           }
         )
+
         if (response.data.success) {
           localStorage.setItem("token", response.data.response[0].token)
-          console.log(response.data.response)
-          toast.success("Logueado pa")
+          toast.success(
+            "Welcome to MyTinerary " + response.data.response[0].name
+          )
 
           dispatch({
             type: "SIGNIN_USER",
             payload: response.data.response[0],
           })
         } else {
-          toast.error("no Logueado pa")
+          console.log(response)
+          toast.error(response.data.error)
         }
       } catch (error) {
         console.error(error)

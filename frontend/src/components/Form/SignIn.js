@@ -15,6 +15,7 @@ function SignIn(props) {
       true
     )
   }
+  props.token && navigate("/", {replace: true})
 
   localStorage.getItem("token") && !props.token && props.tokenDale()
   const email = useRef()
@@ -65,6 +66,7 @@ function SignIn(props) {
               buttonText="Sign Up with Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
+              className="google-btn"
               cookiePolicy={"single_host_origin"}
             />
             <div className="or">
@@ -81,24 +83,6 @@ function SignIn(props) {
           </div>
         </div>
       </div>
-      <h1>Name: {props.token && navigate("/", {replace: true})}</h1>
-      <h1>Lastname: {props.token && props.token.lastname}</h1>
-      <h1>Email: {props.token && props.token.email}</h1>
-      <h1>
-        Photo: <img src={props.token && props.token.photo} />{" "}
-      </h1>
-      <h1>
-        Country: {(props.token && props.token.country) || "Select a country"}
-      </h1>
-      )
-      <button
-        onClick={() => {
-          props.tokenDale()
-          console.log(props.token)
-        }}
-      >
-        Token
-      </button>
     </div>
   )
 }

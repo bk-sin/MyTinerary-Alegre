@@ -165,6 +165,7 @@ function SignUp(props) {
                   buttonText="Sign Up with Google"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
+                  className="google-btn"
                   cookiePolicy={"single_host_origin"}
                 />
                 <div className="noAccount">
