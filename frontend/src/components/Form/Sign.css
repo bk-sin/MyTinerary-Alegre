@@ -249,12 +249,15 @@ select {
 @media (max-width: 1185px) {
   .signImage {
     display: none;
+    width: 100%;
   }
   .signLine {
     display: none;
   }
   .backMyTinerary {
     border-radius: 46px;
+
+    width: 100%;
   }
 }
 
