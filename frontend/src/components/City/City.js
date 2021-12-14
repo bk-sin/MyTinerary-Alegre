@@ -36,8 +36,8 @@ function City(props) {
         </Container>
         {props.cities[0] ? (
           props.itineraries.length > 0 ? (
-            props.itineraries.map((itinerary) => (
-              <Itineraries itinerary={itinerary} />
+            props.itineraries.map((itinerary, index) => (
+              <Itineraries key={index} itinerary={itinerary} />
             ))
           ) : (
             <h1>There are not itineraries for this city yet...</h1>
