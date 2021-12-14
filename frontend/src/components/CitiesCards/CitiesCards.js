@@ -7,7 +7,6 @@ import {connect} from "react-redux"
 function CitiesCards(props) {
   !props.cities[0] && props.getCities()
 
-  console.log(props)
   return (
     <div className="bg">
       <Container className="center">
@@ -23,22 +22,20 @@ function CitiesCards(props) {
           placeholder="Search a City"
         />
       </Container>
-      <div class="cartas">
+      <div className="cartas">
         {props.cities[0] ? (
           props.auxiliar[0] ? (
             props.auxiliar.map((city, index) => (
-              <Link className="cartalink" to={`/city/${city._id}`}>
+              <Link key={index} className="cartalink" to={`/city/${city._id}`}>
                 <div
-                  class={`carta ${
-                    index === 5 || index === 10 ? "paddtop" : ""
+                  className={`carta ${
+                    index === 5 || index === "10" ? "paddtop" : ""
                   }`}
                   style={{backgroundImage: "url(" + city.src + ")"}}
                 >
-                  <div class="carta-content">
-                    <h2 class="carta-title">{city.name}</h2>
-                    <Link to={`/city/${city._id}`} class="boton">
-                      Learn more
-                    </Link>
+                  <div className="carta-content">
+                    <h2 className="carta-title">{city.name}</h2>
+                    <div className="boton">Learn more</div>
                   </div>
                 </div>
               </Link>

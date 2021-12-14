@@ -45,7 +45,6 @@ const authControllers = {
     const {email, password} = req.body
     try {
       const user = await User.findOne({email})
-      console.log(User.findOne({email}))
       if (user) {
         const passwordIsOk = bcryptjs.compareSync(password, user.password)
         if (passwordIsOk) {

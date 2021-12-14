@@ -9,7 +9,6 @@ import {IoIosArrowBack} from "react-icons/io"
 
 function SignUp(props) {
   const [option, setOption] = useState(false)
-  console.log(props)
   let navigate = useNavigate()
 
   localStorage.getItem("token") && !props.token && props.tokenDale()

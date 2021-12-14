@@ -7,7 +7,7 @@ const itinerariesControllers = {
       .then((response) => {
         res.json({response})
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
   },
   readItinerariesByCity: (req, res) => {
     Itinerary.find({city: {_id: req.params.city}})
@@ -15,14 +15,14 @@ const itinerariesControllers = {
       .then((response) => {
         res.json({response})
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
   },
   readItinerary: (req, res) => {
     Itinerary.findOne({_id: req.params.id})
       .then((response) => {
         res.json({response})
       })
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
   },
   createItinerary: (req, res) => {
     const {name, title, src, price, duration, likes, hashtags, comments} =
@@ -39,17 +39,17 @@ const itinerariesControllers = {
     })
       .save()
       .then((response) => res.json({response: {itinerary}}))
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
   },
   modifyItinerary: (req, res) => {
     Itinerary.findOneAndUpdate({_id: req.params.id}, {...req.body})
       .then((response) => res.json({response}))
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
   },
   deleteItinerary: (req, res) => {
     Itinerary.findOneAndRemove({_id: req.params.id})
       .then((response) => res.json({response}))
-      .catch((err) => console.log(err))
+      .catch((err) => console.error(err))
   },
 }
 

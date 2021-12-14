@@ -30,20 +30,20 @@ export default function CitiesCards() {
       />
 
       <Container className="test gap-4 justify-content-center">
-        <div class="cartas">
+        <div className="cartas">
           {filtered > 0 ? (
             filtered.map((city, index) => (
               <Link className="cartalink" to={`/city/${city._id}`}>
                 <div
-                  class={`carta ${
+                  className={`carta ${
                     index === 5 || index === 10 ? "paddtop" : ""
                   }`}
                   style={{backgroundImage: "url(" + city.src + ")"}}
                 >
-                  <div class="carta-content">
-                    <h2 class="carta-title">{city.name}</h2>
-                    {/* <p class="card-body">{city.description}</p> */}
-                    <Link to={`/city/${city._id}`} class="boton">
+                  <div className="carta-content">
+                    <h2 className="carta-title">{city.name}</h2>
+                    {/* <p className="card-body">{city.description}</p> */}
+                    <Link to={`/city/${city._id}`} className="boton">
                       Learn more
                     </Link>
                   </div>

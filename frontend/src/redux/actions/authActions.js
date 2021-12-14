@@ -19,7 +19,6 @@ const authAction = {
         )
         if (response.data.success && !response.data.error) {
           localStorage.setItem("token", response.data.response.token)
-          console.log(response)
           dispatch({
             type: "NEW_USER",
             payload: response.data.response,
@@ -55,7 +54,6 @@ const authAction = {
             payload: response.data.response[0],
           })
         } else {
-          console.log(response)
           toast.error(response.data.error)
         }
       } catch (error) {

@@ -24,15 +24,11 @@ function Navigations(props) {
             id="responsive-navbar-nav"
           >
             <Nav>
-              <Nav.Link>
-                <Link to="/">
-                  <span className="white-link active shadowfilter">Home</span>
-                </Link>
+              <Nav.Link as={Link} to="/">
+                <span className="white-link active shadowfilter">Home</span>
               </Nav.Link>
-              <Nav.Link>
-                <Link to="/cities">
-                  <span className="white-link shadowfilter">Cities</span>
-                </Link>
+              <Nav.Link as={Link} to="/cities">
+                <span className="white-link shadowfilter">Cities</span>
               </Nav.Link>
 
               {!props.token ? (
@@ -42,15 +38,11 @@ function Navigations(props) {
                     title={<FaRegUserCircle className="shadowfilter" />}
                     id="basic-nav-dropdown"
                   >
-                    <NavDropdown.Item>
-                      <Link to="/signup">
-                        <span className="white-link ">Sign Up</span>
-                      </Link>
+                    <NavDropdown.Item as={Link} to="/signup">
+                      <span className="white-link ">Sign Up</span>
                     </NavDropdown.Item>
-                    <NavDropdown.Item>
-                      <Link to="/signin">
-                        <span className="white-link">Sign In</span>
-                      </Link>
+                    <NavDropdown.Item as={Link} to="/signin">
+                      <span className="white-link">Sign In</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
