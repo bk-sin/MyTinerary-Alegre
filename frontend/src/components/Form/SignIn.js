@@ -2,13 +2,9 @@ import "./Sign.css"
 import {useRef} from "react"
 import {connect} from "react-redux"
 import authAction from "../../redux/actions/authActions"
-import {Link} from "react-router-dom"
 import GoogleLogin from "react-google-login"
-import {useNavigate} from "react-router-dom"
 
 function SignIn(props) {
-  let navigate = useNavigate()
-
   const responseGoogle = (response) => {
     props.signinUser(
       response.profileObj.email,
@@ -16,8 +12,6 @@ function SignIn(props) {
       true
     )
   }
-
-  props.token && navigate("/", {replace: true})
 
   localStorage.getItem("token") && !props.token && props.tokenDale()
 
@@ -31,7 +25,7 @@ function SignIn(props) {
   }
 
   return (
-    <div className="signMain">
+    <>
       <div className="signBody">
         <img
           src="https://i.imgur.com/FYtTskU.jpg"
@@ -77,16 +71,10 @@ function SignIn(props) {
               <p>or</p>
               <div className="line"></div>
             </div>
-            <div className="noAccount">
-              <p>Don't have an account yet?</p>
-              <Link to="/signup" className="callToActionSignUp">
-                Sign up
-              </Link>
-            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 const mapDispatchToProps = {

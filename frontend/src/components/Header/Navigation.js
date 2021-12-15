@@ -1,16 +1,57 @@
 import "./Navigation.css"
-import {Navbar, Nav, Container, NavDropdown} from "react-bootstrap"
+import {useState} from "react"
+import {Navbar, Nav, Container, NavDropdown, Modal} from "react-bootstrap"
 import {Link} from "react-router-dom"
 import authAction from "../../redux/actions/authActions"
 import {connect} from "react-redux"
+import SignIn from "../Form/SignIn"
+import SignUp from "../Form/SignUp"
 
 import {FaRegUserCircle} from "react-icons/fa"
 
 function Navigations(props) {
+  const [showSI, setShowSI] = useState(false)
+  const handleCloseSI = () => setShowSI(false)
+  const handleShowSI = () => setShowSI(true)
+  const [showSU, setShowSU] = useState(false)
+  const handleCloseSU = () => setShowSU(false)
+  const handleShowSU = () => setShowSU(true)
+  props.token && showSI && handleCloseSI()
+  props.token && showSU && handleCloseSU()
   localStorage.getItem("token") && !props.token && props.tokenDale()
   return (
     <>
       <Navbar collapseOnSelect fixed="top" expand="lg" variant="dark">
+        <Modal show={showSI} onHide={handleCloseSI}>
+          <SignIn />
+          <div className="noAccount">
+            <p>Don't have an account yet?</p>
+            <div
+              onClick={() => {
+                handleCloseSI()
+                handleShowSU()
+              }}
+              className="callToActionSignUp"
+            >
+              Sign up
+            </div>
+          </div>
+        </Modal>
+        <Modal show={showSU} onHide={handleCloseSU}>
+          <SignUp />
+          <div className="noAccount up">
+            <p className="up">Did you have an account?</p>
+            <div
+              onClick={() => {
+                handleCloseSU()
+                handleShowSI()
+              }}
+              className="callToActionSignUp up"
+            >
+              Sign in
+            </div>
+          </div>
+        </Modal>
         <Container>
           <Link to="/">
             <Navbar.Brand>
@@ -38,10 +79,10 @@ function Navigations(props) {
                     title={<FaRegUserCircle className="shadowfilter" />}
                     id="basic-nav-dropdown"
                   >
-                    <NavDropdown.Item as={Link} to="/signup">
-                      <span className="white-link ">Sign Up</span>
+                    <NavDropdown.Item onClick={handleShowSU}>
+                      <span className="white-link">Sign Up</span>
                     </NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to="/signin">
+                    <NavDropdown.Item onClick={handleShowSI}>
                       <span className="white-link">Sign In</span>
                     </NavDropdown.Item>
                   </NavDropdown>

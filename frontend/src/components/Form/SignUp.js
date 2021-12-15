@@ -2,17 +2,14 @@ import "./Sign.css"
 import {useRef, useState} from "react"
 import {connect} from "react-redux"
 import authAction from "../../redux/actions/authActions"
-import {useNavigate} from "react-router-dom"
 import GoogleLogin from "react-google-login"
-import {Link} from "react-router-dom"
 import {IoIosArrowBack} from "react-icons/io"
 
 function SignUp(props) {
   const [option, setOption] = useState(false)
-  let navigate = useNavigate()
 
   localStorage.getItem("token") && !props.token && props.tokenDale()
-  props.token && navigate("/", {replace: true})
+
   const responseGoogle = (res) => {
     props.signupUser(
       res.profileObj.email,
@@ -62,123 +59,99 @@ function SignUp(props) {
         <div className="signLine"></div>
         <div className="backMyTinerary  su">
           <div className="backForm">
-            <h1 className="signUp signTitle">Travel The World</h1>
             <p className="signUp signP">Sign up MyTinerary now</p>
-
-            {option ? (
-              <>
-                <form className="formSignUp" onSubmit={handleSignUp}>
-                  <div className="labelsInputs">
-                    <div className="name inputlabel">
-                      <label htmlFor="name">Name</label>
-                      <input
-                        type="text"
-                        id="name"
-                        className="btn-signup"
-                        ref={name}
-                        required
-                        minlength="3"
-                        maxlength="20"
-                      ></input>
-                    </div>
-
-                    <div className="name inputlabel">
-                      <label htmlFor="lastname">Lastname</label>
-                      <input
-                        type="text"
-                        id="lastname"
-                        className="btn-signup"
-                        ref={lastname}
-                        required
-                        minlength="3"
-                        maxlength="20"
-                      ></input>
-                    </div>
-                    <div className="name inputlabel">
-                      <label htmlFor="email">Email</label>
-                      <input
-                        type="email"
-                        id="email"
-                        className="btn-signup"
-                        ref={email}
-                        required
-                      ></input>
-                    </div>
-                    <div className="name inputlabel">
-                      <label htmlFor="password">Password</label>
-                      <input
-                        type="password"
-                        id="password"
-                        className="btn-signup"
-                        ref={password}
-                        required
-                        minlength="8"
-                        maxlength="20"
-                      ></input>
-                    </div>
-                    <div className="name inputlabel">
-                      <label htmlFor="photo">Photo</label>
-                      <input
-                        type="string"
-                        id="photo"
-                        className="btn-signup"
-                        required
-                        ref={photo}
-                      ></input>
-                    </div>
-                    <div className="name inputlabel">
-                      <label htmlFor="country">Country</label>
-                      <select
-                        type="text"
-                        id="country"
-                        className="btn-signup"
-                        ref={country}
-                      >
-                        <option value="Argentina">Argentina</option>
-                        <option value="Bolivia">Bolivia</option>
-                        <option value="Paraguay">Paraguay</option>
-                        <option value="Brasil">Brasil</option>
-                        <option value="Uruguay">Uruguay</option>
-                        <option value="Chile">Chile</option>
-                        <option value="Ecuador">Ecuador</option>
-                        <option value="Peru">Peru</option>
-                      </select>
-                    </div>
-                  </div>
+            <form className="formSignUp" onSubmit={handleSignUp}>
+              <div className="labelsInputs">
+                <div className="name inputlabel">
+                  <label htmlFor="name">Name</label>
                   <input
-                    type="submit"
-                    className="btn-signup "
-                    value="Sign up"
-                  />
-                </form>
-                <button
-                  className="btn-signin Submit"
-                  onClick={() => setOption(false)}
-                >
-                  <IoIosArrowBack /> Back
-                </button>
-              </>
-            ) : (
-              <>
-                <button className="btn-signup" onClick={() => setOption(true)}>
-                  Sign up with email
-                </button>
-                <GoogleLogin
-                  clientId="113911854537-8j68k30a4qpl884ffcvk7hvdfmsdlfnc.apps.googleusercontent.com"
-                  buttonText="Sign Up with Google"
-                  onSuccess={responseGoogle}
-                  onFailure={responseGoogle}
-                  className="google-btn"
-                  cookiePolicy={"single_host_origin"}
-                />
-                <div className="noAccount">
-                  <p>Don't have an account yet?</p>
-                  <Link to="/signin" className="callToActionSignUp sub">
-                    Sign in
-                  </Link>
+                    type="text"
+                    id="name"
+                    className="btn-signup"
+                    ref={name}
+                    required
+                    minlength="3"
+                    maxlength="20"
+                  ></input>
                 </div>
-              </>
-            )}
+
+                <div className="name inputlabel">
+                  <label htmlFor="lastname">Lastname</label>
+                  <input
+                    type="text"
+                    id="lastname"
+                    className="btn-signup"
+                    ref={lastname}
+                    required
+                    minlength="3"
+                    maxlength="20"
+                  ></input>
+                </div>
+                <div className="name inputlabel">
+                  <label htmlFor="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="btn-signup"
+                    ref={email}
+                    required
+                  ></input>
+                </div>
+                <div className="name inputlabel">
+                  <label htmlFor="password">Password</label>
+                  <input
+                    type="password"
+                    id="password"
+                    className="btn-signup"
+                    ref={password}
+                    required
+                    minlength="8"
+                    maxlength="20"
+                  ></input>
+                </div>
+                <div className="name inputlabel">
+                  <label htmlFor="photo">Photo</label>
+                  <input
+                    type="string"
+                    id="photo"
+                    className="btn-signup"
+                    required
+                    ref={photo}
+                  ></input>
+                </div>
+                <div className="name inputlabel">
+                  <label htmlFor="country">Country</label>
+                  <select
+                    type="text"
+                    id="country"
+                    className="btn-signup"
+                    ref={country}
+                  >
+                    <option value="Argentina">Argentina</option>
+                    <option value="Bolivia">Bolivia</option>
+                    <option value="Paraguay">Paraguay</option>
+                    <option value="Brasil">Brasil</option>
+                    <option value="Uruguay">Uruguay</option>
+                    <option value="Chile">Chile</option>
+                    <option value="Ecuador">Ecuador</option>
+                    <option value="Peru">Peru</option>
+                  </select>
+                </div>
+              </div>
+              <input
+                type="submit"
+                className="btn-signup Submit2"
+                value="Sign up"
+              />
+              <GoogleLogin
+                clientId="113911854537-8j68k30a4qpl884ffcvk7hvdfmsdlfnc.apps.googleusercontent.com"
+                buttonText="Sign Up with Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                className="google-btn"
+                cookiePolicy={"single_host_origin"}
+              />
+            </form>
           </div>
         </div>
       </div>

@@ -6,7 +6,6 @@ import {connect} from "react-redux"
 
 function CitiesCards(props) {
   !props.cities[0] && props.getCities()
-
   return (
     <div className="bg">
       <Container className="center">
