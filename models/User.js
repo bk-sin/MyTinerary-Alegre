@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
   photo: {type: String, required: true},
   country: {type: String, required: true},
   google: {type: Boolean, default: false},
+  likes: [{type: mongoose.Types.ObjectId, ref: "itinerary"}],
 })
 
 const User = mongoose.model("user", userSchema)

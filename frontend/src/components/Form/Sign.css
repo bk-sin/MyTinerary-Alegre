@@ -249,18 +249,58 @@ select {
 @media (max-width: 1185px) {
   .signImage {
     display: none;
+    position: relative;
     width: 100%;
   }
-  .signLine {
-    display: none;
-  }
+
   .backMyTinerary {
     border-radius: 46px;
 
     width: 100%;
   }
+
+  .noAccount {
+    width: 100%;
+    right: 0%;
+  }
 }
 
+@media (max-width: 620px) {
+  .backForm {
+    width: 100%;
+    height: 100%;
+  }
+  .signLine {
+    display: none;
+  }
+  label {
+    display: none;
+  }
+  .inputlabel {
+    width: 100% !important;
+  }
+  input {
+    width: 100% !important;
+  }
+  select {
+    width: 100% !important;
+  }
+  .backMyTinerary {
+    height: 98vh;
+  }
+  form {
+    height: 100%;
+  }
+}
+
+@media (max-height: 660px) {
+  input {
+    height: 2.3rem !important;
+  }
+  .noAccount {
+    top: 80%;
+  }
+}
 .Submit {
   background: linear-gradient(90deg, #efd862 0%, #ffbfb6 100%);
   transition: 0.5s;

@@ -104,15 +104,12 @@ function Navigations(props) {
                     }
                     id="basic-nav-dropdown"
                   >
-                    <NavDropdown.Item>
-                      <Link
-                        to="/"
-                        onClick={() => {
-                          props.signOut()
-                        }}
-                      >
-                        <span className="white-link ">Sign out</span>
-                      </Link>
+                    <NavDropdown.Item
+                      onClick={() => {
+                        props.signOut()
+                      }}
+                    >
+                      <span className="white-link ">Sign out</span>
                     </NavDropdown.Item>
                   </NavDropdown>
                 </>
