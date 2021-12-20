@@ -12,13 +12,14 @@ const likesAction = {
         let response = await axios.get(
           "http://localhost:4000/api/itineraries/" + cityID
         )
-        console.log(response)
         dispatch({
           type: "LIKE",
           payload: response.data.response,
         })
       } else {
-        toast.info("Please sign in to like this itinerary")
+        toast.info("Please sign in to like this itinerary", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })
       }
     }
   },

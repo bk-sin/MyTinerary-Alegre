@@ -2,6 +2,7 @@ const Router = require("express").Router()
 const citiesControllers = require("../controllers/citiesControllers")
 const itinerariesControllers = require("../controllers/itinerariesControllers")
 const authControllers = require("../controllers/authControllers")
+const activitiesControllers = require("../controllers/activitiesControllers")
 const validator = require("../config/validator")
 const passport = require("../config/passport")
 
@@ -46,4 +47,14 @@ Router.route("/comments")
   .get(getComments)
   .post(postComment)
   .put(delOrEditComment)
+
+Router.route("/activities")
+  .post(activitiesControllers.postActivity)
+  .get(activitiesControllers.returnActivities)
+
+Router.route("/activities/:id")
+  .get(activitiesControllers.returnActivity)
+  .post(activitiesControllers.postActivity)
+  .put(activitiesControllers.modifyActivity)
+  .delete(activitiesControllers.deleteActivity)
 module.exports = Router

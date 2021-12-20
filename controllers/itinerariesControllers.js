@@ -104,7 +104,6 @@ const itinerariesControllers = {
   postComment: async (req, res) => {
     const comment = req.body.comment
     const userID = req.body.userID
-    console.log(userID)
     const itineraryID = req.body.itineraryID
 
     Itinerary.findOneAndUpdate(

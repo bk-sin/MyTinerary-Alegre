@@ -186,3 +186,19 @@
     margin-top: 20px;
   }
 }
+
+.activities {
+  display: flex;
+  width: 100%;
+}
+
+.activity {
+  width: 100%;
+  height: 30rem;
+}
+
+.activityPic {
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
