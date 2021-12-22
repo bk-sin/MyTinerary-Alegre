@@ -12,7 +12,7 @@ const itinerariesControllers = {
   readItinerariesByCity: (req, res) => {
     Itinerary.find({city: {_id: req.params.city}})
       .populate("city")
-      .lean()
+      .populate("comments.userID")
       .then((response) => {
         res.json({response})
       })
@@ -53,54 +53,31 @@ const itinerariesControllers = {
       .catch((err) => console.error(err))
   },
   like: async (req, res) => {
-    const id = req.body.itineraryID
-    const itinerario = await Itinerary.findOne({_id: id}).lean()
+    const itinerarios = await Itinerary.find()
+    const itinerario = await Itinerary.findOne({
+      _id: req.body.itineraryID,
+    }).lean()
     const likeExist = itinerario.likes.some(
       (itinerary) => itinerary.toString() === req.body.userID.toString()
     )
+    const action = !likeExist ? "$push" : "$pull"
+    Itinerary.findByIdAndUpdate(
+      req.body.itineraryID,
+      {
+        [action]: {likes: req.body.userID},
+      },
 
-    if (!likeExist) {
-      Itinerary.findByIdAndUpdate(
-        id,
-        {
-          $push: {likes: req.body.userID},
-        },
-
-        {new: true}
-      )
-        .lean()
-        .then((response) => {
-          res.json({response: response})
-        })
-        .catch((err) => {
-          console.error(err)
-        })
-    } else {
-      Itinerary.findByIdAndUpdate(
-        id,
-        {
-          $pull: {likes: req.body.userID},
-        },
-        {new: true}
-      )
-        .lean()
-        .then((response) => {
-          res.json({response: response})
-        })
-        .catch((err) => {
-          console.error(err)
-        })
-    }
-  },
-  getComments: async (req, res) => {
-    Itinerary.findById(req.body.itineraryID)
+      {new: true}
+    )
+      .lean()
       .then((response) => {
-        res.json({response: response})
+        res.json({response: itinerarios})
       })
       .catch((err) => {
         console.error(err)
       })
   },
+
   postComment: async (req, res) => {
     const comment = req.body.comment
     const userID = req.body.userID
@@ -113,7 +90,9 @@ const itinerariesControllers = {
     )
       .populate("comments.userID")
       .then((response) => {
-        res.json({success: true, response: response})
+        let all = Itinerary.find()
+        console.log(all)
+        res.json({success: true, response: all})
       })
       .catch((err) => {
         console.log(err)
@@ -121,6 +100,7 @@ const itinerariesControllers = {
       })
   },
   delOrEditComment: async (req, res) => {
+    console.log("llamado")
     const commentID = req.body.commentID
     const edit = req.body.edit
     const itineraryID = req.body.itineraryID
@@ -151,13 +131,10 @@ const itinerariesControllers = {
       Itinerary.updateOne(
         {
           _id: itineraryID,
+          "comments._id": commentID,
         },
         {
-          $set: {
-            comments: {
-              comment: edit,
-            },
-          },
+          "comments.$.comment": edit,
         },
         {new: true}
       )

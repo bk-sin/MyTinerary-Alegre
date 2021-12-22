@@ -10,6 +10,7 @@ import itinerariesAction from "../../redux/actions/citiesActions"
 import likesAction from "../../redux/actions/likesActions"
 import authAction from "../../redux/actions/authActions"
 import {Spinner} from "react-bootstrap"
+import itinerariesActions from "../../redux/actions/itinerariesActions"
 import Itineraries from "./Itineraries"
 
 function City(props) {
@@ -47,6 +48,7 @@ function City(props) {
                 user={props.user}
                 params={params.id}
                 activities={props.activities}
+                comments={props.comments}
               />
             ))
           ) : (
@@ -62,6 +64,7 @@ function City(props) {
 
 const mapStateToProps = (state) => {
   return {
+    comments: state.itinerariesReducer.comments,
     cities: state.citiesReducer.cities,
     city: state.citiesReducer.city,
     itineraries: state.itinerariesReducer.itineraries,

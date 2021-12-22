@@ -2,6 +2,7 @@ const initialState = {
   state: [],
   itineraries: [],
   activities: [],
+  comments: [],
 }
 
 const itinerariesReducer = (state = initialState, action) => {
@@ -11,16 +12,17 @@ const itinerariesReducer = (state = initialState, action) => {
         ...state,
         itineraries: action.payload,
       }
-    case "LIKE":
-      return {
-        ...state,
-        itineraries: action.payload,
-      }
     case "GET_ACTIVITIES":
       return {
         ...state,
         activities: action.payload,
       }
+    case "GET_COMMENTS":
+      return {
+        ...state,
+        comments: action.payload,
+      }
+
     default:
       return state
   }

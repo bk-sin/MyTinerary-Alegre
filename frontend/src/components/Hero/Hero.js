@@ -20,12 +20,16 @@ export default function Hero() {
     gsap.from(nube1, {opacity: 0, x: 500, duration: 1}, "-=0.1")
     gsap.from(nube2, {opacity: 0, x: -500, duration: 1})
     gsap.from(brillo, {opacity: 0, y: -600, duration: 1}, "+=0")
-    timeline.to(stagger, {
-      opacity: 1,
-      y: 20,
-      duration: 1,
-      stagger: 0.5,
-    })
+    timeline.to(
+      stagger,
+      {
+        opacity: 1,
+        y: 20,
+        duration: 1,
+        stagger: 0.5,
+      },
+      "+=1"
+    )
   })
   return (
     <>

@@ -18,10 +18,8 @@ const activitiesControllers = {
       .then((response) => res.json({response}))
   },
   returnActivitiesByItinerary: (req, res) => {
-    console.log(req.body)
     Activity.find({itinerary: {_id: req.params.itineraryId}})
       .then((response) => {
-        console.log(response)
         res.json({response})
       })
       .catch((err) => console.log(err))

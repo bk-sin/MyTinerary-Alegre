@@ -1,13 +1,32 @@
 import "./Itineraries.css"
 import {RiMoneyDollarBoxFill} from "react-icons/ri"
-import {useState, useEffect} from "react"
+import {Carousel} from "react-bootstrap"
+import {useState, useEffect, useRef} from "react"
 import likesAction from "../../redux/actions/likesActions"
 import itinerariesActions from "../../redux/actions/itinerariesActions"
 import authAction from "../../redux/actions/authActions"
 import {connect} from "react-redux"
 import {toast} from "react-toastify"
+import Comment from "./Comment"
 
 function Itineraries(props) {
+  const posteador = useRef()
+  const [post, setPost] = useState(true)
+  const [postComment, setPostComment] = useState("")
+
+  function handleSubmitP(e) {
+    e.preventDefault()
+    if (postComment) {
+      props.postComment(
+        postComment,
+        props.user._id,
+        props.itinerary._id,
+        props.params
+      )
+    }
+    posteador.current.value = ""
+  }
+
   function price(price) {
     return Array.from({length: price})
   }
@@ -23,6 +42,7 @@ function Itineraries(props) {
 
   useEffect(() => {
     !props.user && setliked(false)
+    setliked(props.itinerary.likes.some((id) => id === props.user._id))
   }, [props.user])
 
   if (props.itinerary && liked === "" && likes === "") {
@@ -45,7 +65,7 @@ function Itineraries(props) {
   const [display, setDisplay] = useState(false)
   const handleClick = () => {
     setDisplay(!display)
-    props.getActivities(props.itinerary._id)
+    props.getActivities()
   }
 
   return (
@@ -80,31 +100,70 @@ function Itineraries(props) {
               <div className="tag">#{hash}</div>
             ))}
           </div>
+
           {display && (
             <div className="activities">
-              {display &&
-                props.activities[0] &&
-                props.activities.map((activity) => {
-                  if (activity.itinerary._id === props.itinerary._id) {
-                    return (
-                      <div className="activity">
-                        <div
-                          className="activityPic"
-                          style={{backgroundImage: `url("${activity.image}")`}}
-                        >
-                          <h5>{activity.title}</h5>
-                        </div>
-                      </div>
-                    )
-                  }
-                })}
+              <Carousel fade className="activity">
+                {display &&
+                  props.activities[0] &&
+                  props.activities.map((activity) => {
+                    if (activity.itinerary._id === props.itinerary._id) {
+                      return (
+                        <Carousel.Item className="activity">
+                          <img
+                            className="w-100 activityPic "
+                            src={activity.image}
+                            alt="slide"
+                          />
+                          <Carousel.Caption className="oscurito">
+                            <h3>{activity.title}</h3>
+                            <p>{activity.description}</p>
+                          </Carousel.Caption>
+                        </Carousel.Item>
+                      )
+                    }
+                  })}
+              </Carousel>
+              <div>
+                <h1>Comentarios</h1>
+                <h2>
+                  {props.itinerary.comments.map(
+                    (comment) =>
+                      comment.comment && (
+                        <Comment
+                          comment={comment}
+                          itineraryID={props.itinerary._id}
+                          params={props.params}
+                          user={props.user._id}
+                        />
+                      )
+                  )}
+                </h2>
+              </div>
+              {props.user && post && (
+                <div className="newComment">
+                  <form onSubmit={handleSubmitP}>
+                    <label>
+                      Post:
+                      <input
+                        type="text"
+                        name="editor"
+                        ref={posteador}
+                        onInput={() => setPostComment(posteador.current.value)}
+                      />
+                    </label>
+                    <input type="submit" value="Submit" />
+                  </form>
+                </div>
+              )}
             </div>
           )}
+
+          <button onClick={handleClick}>
+            {" "}
+            {display ? "View less" : "View more"}
+          </button>
         </div>
-        <button onClick={handleClick}>
-          {" "}
-          {display ? "View less" : "View more"}
-        </button>
       </div>
     </>
   )
@@ -118,7 +177,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = {
   getActivities: itinerariesActions.getActivities,
-
+  postComment: itinerariesActions.postComment,
   like: likesAction.like,
   tokenDale: authAction.tokenDale,
 }

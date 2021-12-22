@@ -17,7 +17,6 @@ const {
   modifyItinerary,
   readItinerariesByCity,
   like,
-  getComments,
   postComment,
   delOrEditComment,
 } = itinerariesControllers
@@ -44,9 +43,8 @@ Router.route("/auth").get(passport.authenticate("jwt", {session: false}), token)
 
 Router.route("/like").put(like)
 Router.route("/comments")
-  .get(getComments)
   .post(postComment)
-  .put(delOrEditComment)
+  .put(passport.authenticate("jwt", {session: false}), delOrEditComment)
 
 Router.route("/activities")
   .post(activitiesControllers.postActivity)

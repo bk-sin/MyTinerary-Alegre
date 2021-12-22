@@ -13,7 +13,7 @@ const likesAction = {
           "http://localhost:4000/api/itineraries/" + cityID
         )
         dispatch({
-          type: "LIKE",
+          type: "GET_ITINERARIES_BY_CITY_ID",
           payload: response.data.response,
         })
       } else {
@@ -29,7 +29,7 @@ const likesAction = {
         "http://localhost:4000/api/itineraries/" + cityID
       )
       dispatch({
-        type: "LIKE",
+        type: "GET_ITINERARIES_BY_CITY_ID",
         payload: response.data.response,
       })
     }
