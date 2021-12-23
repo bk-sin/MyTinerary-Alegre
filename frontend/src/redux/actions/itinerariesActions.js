@@ -1,4 +1,5 @@
 import axios from "axios"
+import {toast} from "react-toastify"
 
 const itinerariesAction = {
   getItinerariesByCityId: (city_id) => {
@@ -21,18 +22,32 @@ const itinerariesAction = {
 
   postComment: (comment, userID, itineraryID, city_id) => {
     return async (dispatch, getState) => {
-      let response = await axios.post("http://localhost:4000/api/comments", {
-        comment,
-        userID,
-        itineraryID,
-      })
-      /* let response = await axios.get(
-        "http://localhost:4000/api/itineraries/" + city_id
-      ) */
-      dispatch({
-        type: "GET_ITINERARIES_BY_CITY_ID",
-        payload: response.data.response,
-      })
+      const token = localStorage.getItem("token")
+      if (comment && userID && itineraryID && city_id) {
+        let response = await axios.post(
+          "http://localhost:4000/api/comments",
+          {
+            comment,
+            userID,
+            itineraryID,
+            city_id,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+
+        dispatch({
+          type: "GET_ITINERARIES_BY_CITY_ID",
+          payload: response.data.response,
+        })
+      } else {
+        toast.warning("You need to sign in", {
+          position: toast.POSITION.TOP_CENTER,
+        })
+      }
     }
   },
   delComment: (itineraryID, commentID, type, city_id) => {

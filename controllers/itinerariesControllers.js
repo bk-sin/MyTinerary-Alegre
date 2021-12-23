@@ -80,27 +80,25 @@ const itinerariesControllers = {
 
   postComment: async (req, res) => {
     const comment = req.body.comment
-    const userID = req.body.userID
+    const userID = req.user._id
     const itineraryID = req.body.itineraryID
+    try {
+      let cambiado = await Itinerary.findOneAndUpdate(
+        {_id: itineraryID},
+        {$push: {comments: {comment, userID}}},
+        {new: true}
+      )
 
-    Itinerary.findOneAndUpdate(
-      {_id: itineraryID},
-      {$push: {comments: {comment, userID}}},
-      {new: true}
-    )
-      .populate("comments.userID")
-      .then((response) => {
-        let all = Itinerary.find()
-        console.log(all)
-        res.json({success: true, response: all})
-      })
-      .catch((err) => {
-        console.log(err)
-        res.json({success: false, response: err})
-      })
+      let all = await Itinerary.find({city: {_id: req.body.city_id}}).populate(
+        "comments.userID"
+      )
+      res.json({success: true, response: all})
+    } catch {
+      console.log(err)
+      res.json({success: false, response: err})
+    }
   },
   delOrEditComment: async (req, res) => {
-    console.log("llamado")
     const commentID = req.body.commentID
     const edit = req.body.edit
     const itineraryID = req.body.itineraryID

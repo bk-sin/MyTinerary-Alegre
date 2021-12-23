@@ -43,7 +43,7 @@ Router.route("/auth").get(passport.authenticate("jwt", {session: false}), token)
 
 Router.route("/like").put(like)
 Router.route("/comments")
-  .post(postComment)
+  .post(passport.authenticate("jwt", {session: false}), postComment)
   .put(passport.authenticate("jwt", {session: false}), delOrEditComment)
 
 Router.route("/activities")

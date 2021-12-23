@@ -8,11 +8,13 @@ import authAction from "../../redux/actions/authActions"
 import {connect} from "react-redux"
 import {toast} from "react-toastify"
 import Comment from "./Comment"
+import {FiSend} from "react-icons/fi"
 
 function Itineraries(props) {
   const posteador = useRef()
   const [post, setPost] = useState(true)
   const [postComment, setPostComment] = useState("")
+  const send = <FiSend />
 
   function handleSubmitP(e) {
     e.preventDefault()
@@ -24,7 +26,7 @@ function Itineraries(props) {
         props.params
       )
     }
-    posteador.current.value = ""
+    localStorage.getItem("token") && (posteador.current.value = "")
   }
 
   function price(price) {
@@ -65,12 +67,12 @@ function Itineraries(props) {
   const [display, setDisplay] = useState(false)
   const handleClick = () => {
     setDisplay(!display)
-    props.getActivities()
+    props.activities && props.getActivities()
   }
 
   return (
     <>
-      <div className="itinerary">
+      <div className="itinerary mt-4">
         <h2 className="itinerary-title">{props.itinerary.title}</h2>
         <div className="itinerary-content">
           <img className="itinerary-photo" src={props.itinerary.src} alt="" />
@@ -105,7 +107,7 @@ function Itineraries(props) {
             <div className="activities">
               <Carousel fade className="activity">
                 {display &&
-                  props.activities[0] &&
+                  props.activities &&
                   props.activities.map((activity) => {
                     if (activity.itinerary._id === props.itinerary._id) {
                       return (
@@ -125,41 +127,48 @@ function Itineraries(props) {
                   })}
               </Carousel>
               <div>
-                <h1>Comentarios</h1>
-                <h2>
-                  {props.itinerary.comments.map(
-                    (comment) =>
-                      comment.comment && (
-                        <Comment
-                          comment={comment}
-                          itineraryID={props.itinerary._id}
-                          params={props.params}
-                          user={props.user._id}
-                        />
-                      )
-                  )}
-                </h2>
-              </div>
-              {props.user && post && (
-                <div className="newComment">
-                  <form onSubmit={handleSubmitP}>
-                    <label>
-                      Post:
-                      <input
-                        type="text"
-                        name="editor"
-                        ref={posteador}
-                        onInput={() => setPostComment(posteador.current.value)}
-                      />
-                    </label>
-                    <input type="submit" value="Submit" />
-                  </form>
+                <div className="commentBox">
+                  <h1>Comments</h1>
+                  <div className="comments">
+                    {props.itinerary.comments.map(
+                      (comment) =>
+                        comment.comment && (
+                          <Comment
+                            comment={comment}
+                            itineraryID={props.itinerary._id}
+                            params={props.params}
+                            user={props.user._id}
+                          />
+                        )
+                    )}
+                  </div>
                 </div>
-              )}
+              </div>
+
+              <div className="newComment">
+                <form onSubmit={handleSubmitP} className="posteador">
+                  <label>Post:</label>
+                  <input
+                    type="text"
+                    name="editor"
+                    className="inputtext"
+                    required
+                    autoComplete="false"
+                    maxlength="140"
+                    placeholder="Leave your message here :)"
+                    ref={posteador}
+                    onInput={() =>
+                      setPostComment(posteador.current.value.trim())
+                    }
+                  />
+
+                  <input type="submit" value="👆" className="send " />
+                </form>
+              </div>
             </div>
           )}
 
-          <button onClick={handleClick}>
+          <button className="btn-signup mt-4" onClick={handleClick}>
             {" "}
             {display ? "View less" : "View more"}
           </button>
@@ -170,7 +179,6 @@ function Itineraries(props) {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     user: state.authReducer.user,
   }

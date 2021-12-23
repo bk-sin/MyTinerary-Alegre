@@ -1,6 +1,9 @@
 import {connect} from "react-redux"
+import {Button} from "react-bootstrap"
 import {useRef, useState} from "react"
 import itinerariesActions from "../../redux/actions/itinerariesActions"
+import {FaTrashAlt, FaEdit} from "react-icons/fa"
+import swal from "sweetalert"
 
 function Comment(props) {
   function handleSubmitE(e) {
@@ -14,61 +17,88 @@ function Comment(props) {
       props.params
     )
   }
+  function deleteComment() {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        props.delComment(
+          props.itineraryID,
+          props.comment._id,
+          "DEL",
+          props.params
+        )
+        swal("Poof! Your imaginary file has been deleted!", {
+          icon: "success",
+        })
+      } else {
+        swal("Your imaginary file is safe!")
+      }
+    })
+  }
 
   const editor = useRef()
   const [edit, setEdit] = useState(false)
   const [newComment, setNewComment] = useState("")
+
   return (
-    <>
-      {props.comment.userID._id === props.user && (
+    <div className="comment">
+      {props.comment.userID && props.comment.userID._id === props.user && (
         <div className="buttons">
-          <p
+          <Button
+            variant="danger"
             onClick={() => {
-              props.delComment(
-                props.itineraryID,
-                props.comment._id,
-                "DEL",
-                props.params
-              )
+              deleteComment()
             }}
           >
-            X
-          </p>
-          <p
+            <FaTrashAlt />
+          </Button>
+          <Button
+            variant="warning"
             onClick={() => {
               setEdit(!edit)
             }}
           >
-            E
-          </p>
-          {edit && (
-            <form onSubmit={handleSubmitE}>
-              <label>
-                Edit:
-                <input
-                  type="text"
-                  name="editor"
-                  ref={editor}
-                  defaultValue={props.comment.comment}
-                  onChange={() => setNewComment(editor.current.value)}
-                />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-          )}
+            <FaEdit />
+          </Button>
         </div>
       )}
-      {!edit && <h1>{props.comment.comment}</h1>}
-      <h2>{props.comment.userID.name}</h2>
-      <img src={props.comment.userID.photo} alt="comment" />
-    </>
+      {!edit ? (
+        <div className="message">
+          <p className="pmessage">{props.comment.comment}</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmitE} className="message">
+          <label className="labeltext">Edit:</label>
+          <textarea
+            className="message"
+            rows="4"
+            name="editor"
+            ref={editor}
+            defaultValue={props.comment.comment}
+            onChange={() => setNewComment(editor.current.value)}
+          />
+
+          <input type="submit" value="Submit" className="btn-submit" />
+        </form>
+      )}
+      {props.comment.userID && (
+        <div className="userInfo">
+          <p>{props.comment.userID.name}</p>
+          <img src={props.comment.userID.photo} alt="comment" />
+        </div>
+      )}
+    </div>
   )
 }
 
 const mapDispatchToProps = {
   delComment: itinerariesActions.delComment,
   modComment: itinerariesActions.modComment,
-  postComment: itinerariesActions.postComment,
 }
 
 export default connect(null, mapDispatchToProps)(Comment)

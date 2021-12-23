@@ -52,7 +52,9 @@ function City(props) {
               />
             ))
           ) : (
-            <h1>There are not itineraries for this city yet...</h1>
+            <h1 className="itinerary-title mt-4 ">
+              There are not itineraries for this city yet...
+            </h1>
           )
         ) : (
           <Spinner className="spinner" animation="border" variant="warning" />

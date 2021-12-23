@@ -235,6 +235,7 @@ select {
 }
 .btn-signup {
   padding: 0.4em;
+  width: 10vw;
   border: none;
   border-radius: 50px;
   font-family: Montserrat;
