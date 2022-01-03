@@ -46,7 +46,7 @@ function Comment(props) {
   const [newComment, setNewComment] = useState("")
 
   return (
-    <div className="comment">
+    <div className="comment" key={props.index}>
       {props.comment.userID && props.comment.userID._id === props.user && (
         <div className="buttons">
           <Button
@@ -75,7 +75,7 @@ function Comment(props) {
         <form onSubmit={handleSubmitE} className="message">
           <label className="labeltext">Edit:</label>
           <textarea
-            className="message"
+            className="message texa inputtext"
             rows="4"
             name="editor"
             ref={editor}

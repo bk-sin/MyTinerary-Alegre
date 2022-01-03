@@ -131,10 +131,11 @@ function Itineraries(props) {
                   <h1>Comments</h1>
                   <div className="comments">
                     {props.itinerary.comments.map(
-                      (comment) =>
+                      (comment, index) =>
                         comment.comment && (
                           <Comment
                             comment={comment}
+                            index={index}
                             itineraryID={props.itinerary._id}
                             params={props.params}
                             user={props.user._id}
@@ -147,14 +148,15 @@ function Itineraries(props) {
 
               <div className="newComment">
                 <form onSubmit={handleSubmitP} className="posteador">
-                  <label>Post:</label>
+                  <label htmlFor={"editor" + props.index}>Post:</label>
                   <input
                     type="text"
+                    id={"editor" + props.index}
                     name="editor"
                     className="inputtext"
                     required
-                    autoComplete="false"
-                    maxlength="140"
+                    autoComplete="off"
+                    maxLength="140"
                     placeholder="Leave your message here :)"
                     ref={posteador}
                     onInput={() =>

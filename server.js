@@ -1,17 +1,26 @@
 require("dotenv").config()
-const express = require("express")
+require("./config/database")
 
+const express = require("express")
 const cors = require("cors")
 const Router = require("./routes/routes")
-require("./config/database")
 const passport = require("passport")
 const app = express()
+const HOST = process.env.HOST || "0.0.0.0"
+const PORT = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
 app.use(passport.initialize())
 app.use("/api", Router)
 
-app.listen(4000, () => {
-  console.log(" Server is listening on port 4000 ")
-})
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("frontend/build"))
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/frontend/build/index.html"))
+  })
+}
+
+app.listen(PORT, () =>
+  console.log("App listening on port " + PORT + " on " + HOST)
+)

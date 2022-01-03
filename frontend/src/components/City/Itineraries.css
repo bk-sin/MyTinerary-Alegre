@@ -212,6 +212,41 @@
   color: white;
 }
 
+.btn-submit {
+  margin: 0.5rem;
+  padding: 0.4em;
+  border: none;
+  border-radius: 50px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  align-self: center;
+}
+
+.texa {
+  float: left;
+  width: 100%;
+  max-height: 275px;
+  outline: none;
+  border: 1px solid grey;
+  width: 85%;
+  height: 4rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: 7px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 30px;
+  font-family: Montserrat;
+  padding: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  color: #505050;
+  text-align: center;
+}
+
 .buttons {
   display: flex;
   align-items: center;
@@ -233,6 +268,7 @@
   color: #505050;
   text-align: center;
 }
+
 .send {
   padding: 0.4em;
   border: none;

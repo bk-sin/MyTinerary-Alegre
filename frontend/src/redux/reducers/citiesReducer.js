@@ -23,7 +23,7 @@ const citiesReducer = (state = initialState, action) => {
       }
     case "SEARCH":
       const filtered = action.payload.cities.filter((city) =>
-        city.name.toLowerCase().startsWith(action.payload.search.toLowerCase())
+        city.name.toLowerCase().includes(action.payload.search.toLowerCase())
       )
       return {
         ...state,

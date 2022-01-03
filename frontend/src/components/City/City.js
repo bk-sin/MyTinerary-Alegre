@@ -10,7 +10,6 @@ import itinerariesAction from "../../redux/actions/citiesActions"
 import likesAction from "../../redux/actions/likesActions"
 import authAction from "../../redux/actions/authActions"
 import {Spinner} from "react-bootstrap"
-import itinerariesActions from "../../redux/actions/itinerariesActions"
 import Itineraries from "./Itineraries"
 
 function City(props) {

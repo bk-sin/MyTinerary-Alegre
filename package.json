@@ -13,7 +13,9 @@
     "passport-jwt": "^4.0.0"
   },
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "dev": "nodeman server.js",
+    "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "name": "mytinerary-alegre",
   "version": "1.0.0",

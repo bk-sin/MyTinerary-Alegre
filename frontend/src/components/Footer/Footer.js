@@ -1,4 +1,5 @@
 import "./Footer.css"
+import {Link} from "react-router-dom"
 import {
   FaFacebookSquare,
   FaLinkedin,
@@ -21,8 +22,8 @@ const Footer = () => {
           eiusmod tempor incididunt.
         </p>
         <div className="footerLinks">
-          <a href="/">Home</a>
-          <a href="/cities">Cities</a>
+          <Link to="/">Home</Link>
+          <Link to="/cities">Cities</Link>
         </div>
         <div>
           <FaFacebookSquare className="Footersocials" />
