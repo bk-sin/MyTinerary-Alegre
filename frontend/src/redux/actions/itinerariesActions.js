@@ -5,7 +5,7 @@ const itinerariesAction = {
   getItinerariesByCityId: (city_id) => {
     return async (dispatch, getState) => {
       let response = await axios.get(
-        "http://localhost:4000/api/itineraries/" + city_id
+        "https://mytinerary-alegre.herokuapp.com/api/itineraries/" + city_id
       )
       dispatch({
         type: "GET_ITINERARIES_BY_CITY_ID",
@@ -15,7 +15,9 @@ const itinerariesAction = {
   },
   getActivities: () => {
     return async (dispatch, getState) => {
-      let response = await axios.get("http://localhost:4000/api/activities")
+      let response = await axios.get(
+        "https://mytinerary-alegre.herokuapp.com/api/activities"
+      )
       dispatch({type: "GET_ACTIVITIES", payload: response.data.response})
     }
   },
@@ -25,7 +27,7 @@ const itinerariesAction = {
       const token = localStorage.getItem("token")
       if (comment && userID && itineraryID && city_id) {
         let response = await axios.post(
-          "http://localhost:4000/api/comments",
+          "https://mytinerary-alegre.herokuapp.com/api/comments",
           {
             comment,
             userID,
@@ -54,7 +56,7 @@ const itinerariesAction = {
     return async (dispatch, getState) => {
       const token = localStorage.getItem("token")
       let comment = await axios.put(
-        "http://localhost:4000/api/comments",
+        "https://mytinerary-alegre.herokuapp.com/api/comments",
         {
           itineraryID,
           commentID,
@@ -67,7 +69,7 @@ const itinerariesAction = {
         }
       )
       let response = await axios.get(
-        "http://localhost:4000/api/itineraries/" + city_id
+        "https://mytinerary-alegre.herokuapp.com/api/itineraries/" + city_id
       )
       dispatch({
         type: "GET_ITINERARIES_BY_CITY_ID",
@@ -80,7 +82,7 @@ const itinerariesAction = {
       const token = localStorage.getItem("token")
 
       await axios.put(
-        "http://localhost:4000/api/comments",
+        "https://mytinerary-alegre.herokuapp.com/api/comments",
         {
           itineraryID,
           commentID,
@@ -94,7 +96,7 @@ const itinerariesAction = {
         }
       )
       let response = await axios.get(
-        "http://localhost:4000/api/itineraries/" + city_id
+        "https://mytinerary-alegre.herokuapp.com/api/itineraries/" + city_id
       )
       dispatch({
         type: "GET_ITINERARIES_BY_CITY_ID",

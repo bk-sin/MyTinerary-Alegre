@@ -5,12 +5,15 @@ const likesAction = {
   like: (userID, itineraryID, cityID) => {
     return async (dispatch, getstate) => {
       if (userID && itineraryID) {
-        const like = await axios.put("http://localhost:4000/api/like", {
-          itineraryID,
-          userID,
-        })
+        const like = await axios.put(
+          "https://mytinerary-alegre.herokuapp.com/api/like",
+          {
+            itineraryID,
+            userID,
+          }
+        )
         let response = await axios.get(
-          "http://localhost:4000/api/itineraries/" + cityID
+          "https://mytinerary-alegre.herokuapp.com/api/itineraries/" + cityID
         )
         dispatch({
           type: "GET_ITINERARIES_BY_CITY_ID",
@@ -26,7 +29,7 @@ const likesAction = {
   getLikes: (cityID) => {
     return async (dispatch, getstate) => {
       let response = await axios.get(
-        "http://localhost:4000/api/itineraries/" + cityID
+        "https://mytinerary-alegre.herokuapp.com/api/itineraries/" + cityID
       )
       dispatch({
         type: "GET_ITINERARIES_BY_CITY_ID",

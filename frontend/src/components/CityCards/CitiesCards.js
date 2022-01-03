@@ -9,9 +9,11 @@ export default function CitiesCards() {
   const [search, setSearch] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/cities").then((response) => {
-      setCities(response.data.response)
-    })
+    axios
+      .get("https://mytinerary-alegre.herokuapp.com/api/cities")
+      .then((response) => {
+        setCities(response.data.response)
+      })
   }, [])
 
   const filtered = cities.filter((city) =>

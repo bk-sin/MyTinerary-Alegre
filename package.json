@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodeman server.js",
+    "dev": "nodemon server.js",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
   },
   "name": "mytinerary-alegre",

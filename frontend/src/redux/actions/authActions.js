@@ -6,7 +6,7 @@ const authAction = {
     return async (dispatch, getState) => {
       try {
         let response = await axios.post(
-          "http://localhost:4000/api/auth/signup",
+          "https://mytinerary-alegre.herokuapp.com/api/auth/signup",
           {
             email,
             password,
@@ -38,7 +38,7 @@ const authAction = {
     return async (dispatch, getState) => {
       try {
         const response = await axios.post(
-          "http://localhost:4000/api/auth/signin",
+          "https://mytinerary-alegre.herokuapp.com/api/auth/signin",
           {
             email,
             password,
@@ -68,7 +68,7 @@ const authAction = {
       try {
         const token = localStorage.getItem("token")
         const response = await axios.get(
-          "http://localhost:4000/api/auth",
+          "https://mytinerary-alegre.herokuapp.com/api/auth",
 
           {
             headers: {

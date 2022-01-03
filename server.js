@@ -6,8 +6,7 @@ const cors = require("cors")
 const Router = require("./routes/routes")
 const passport = require("passport")
 const app = express()
-const HOST = process.env.HOST || "0.0.0.0"
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 4000
 
 app.use(cors())
 app.use(express.json())
@@ -21,6 +20,4 @@ if (process.env.NODE_ENV === "production") {
   })
 }
 
-app.listen(PORT, () =>
-  console.log("App listening on port " + PORT + " on " + HOST)
-)
+app.listen(PORT, () => console.log("App listening on port " + PORT))
